@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 .env
+=======
+﻿.env
+target/
+.idea/
+.vscode/
+*.class
+>>>>>>> ReneDamian-18
