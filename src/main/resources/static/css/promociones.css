@@ -1,54 +1,57 @@
+/* Paleta: blanco y marrón */
+
 .card-admin {
-    background: #111;
-    border: 1px solid rgba(201, 168, 76, 0.15);
+    background: #ffffff;
+    border: 1px solid rgba(139, 90, 43, 0.2);
     border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(59, 42, 32, 0.06);
 }
 
 .form-label-gold {
-    color: #c9a84c;
+    color: #8b5a2b;
     font-weight: 600;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
 }
 
 .input-dark {
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background: #ffffff;
+    border: 1px solid rgba(59, 42, 32, 0.2);
+    color: #3b2a20;
 }
 
 .input-dark:focus {
-    background: #222;
-    border-color: #c9a84c;
-    color: #fff;
-    box-shadow: none;
+    background: #ffffff;
+    border-color: #8b5a2b;
+    color: #3b2a20;
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.15);
 }
 
 .table-dark-custom {
-    background: #111;
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.05);
+    background: #ffffff;
+    color: #3b2a20;
+    border-color: rgba(59, 42, 32, 0.10);
 }
 
 .badge-active {
-    background: rgba(46, 204, 113, 0.15);
-    color: #2ecc71;
-    border: 1px solid #2ecc71;
+    background: rgba(46, 139, 87, 0.12);
+    color: #1f6f46;
+    border: 1px solid #2e8b57;
 }
 
 .badge-inactive {
-    background: rgba(231, 76, 60, 0.15);
-    color: #e74c3c;
-    border: 1px solid #e74c3c;
+    background: rgba(192, 57, 43, 0.10);
+    color: #a52f23;
+    border: 1px solid #c0392b;
 }
 
 .section-promos {
     padding: 60px 0;
-    background: #0a0a0a;
+    background: #f7f3ef;
 }
 
 .sec-eyebrow-promo {
-    color: var(--gold, #c9a84c);
+    color: var(--gold, #8b5a2b);
     font-size: 0.85rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -59,26 +62,26 @@
 .sec-title-promo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.5rem;
-    color: #f0ece0;
+    color: #3b2a20;
     font-weight: 700;
 }
 
 .sec-line-promo {
     width: 50px;
     height: 2px;
-    background: var(--gold, #c9a84c);
+    background: var(--gold, #8b5a2b);
     margin: 15px auto 0;
 }
 
 /* Contenedor principal del Ticket */
 .promo-ticket {
-    background: linear-gradient(145deg, #121212 0%, #1c1a15 100%);
-    border: 1px solid rgba(201, 168, 76, 0.25);
+    background: linear-gradient(145deg, #ffffff 0%, #efe6df 100%);
+    border: 1px solid rgba(139, 90, 43, 0.3);
     border-radius: 16px;
     position: relative;
     overflow: hidden;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(59, 42, 32, 0.12);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -88,7 +91,7 @@
 
 .promo-ticket:hover {
     transform: translateY(-5px);
-    border-color: var(--gold, #c9a84c);
+    border-color: var(--gold, #8b5a2b);
 }
 
 /* Cortes laterales de cupón tradicional */
@@ -96,7 +99,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background: #0a0a0a; /* Debe coincidir con el fondo de la sección */
+    background: #f7f3ef; /* Debe coincidir con el fondo de la sección */
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
@@ -105,27 +108,27 @@
 
 .notch-left {
     left: -10px;
-    border-right: 1px solid rgba(201, 168, 76, 0.25);
+    border-right: 1px solid rgba(139, 90, 43, 0.3);
 }
 
 .promo-ticket:hover .notch-left {
-    border-right-color: var(--gold, #c9a84c);
+    border-right-color: var(--gold, #8b5a2b);
 }
 
 .notch-right {
     right: -10px;
-    border-left: 1px solid rgba(201, 168, 76, 0.25);
+    border-left: 1px solid rgba(139, 90, 43, 0.3);
 }
 
 .promo-ticket:hover .notch-right {
-    border-left-color: var(--gold, #c9a84c);
+    border-left-color: var(--gold, #8b5a2b);
 }
 
 /* Cabecera del ticket */
 .badge-promo-type {
-    background: rgba(201, 168, 76, 0.1);
-    color: var(--gold, #c9a84c);
-    border: 1px solid rgba(201, 168, 76, 0.4);
+    background: rgba(139, 90, 43, 0.10);
+    color: var(--gold, #8b5a2b);
+    border: 1px solid rgba(139, 90, 43, 0.4);
     font-size: 0.75rem;
     padding: 6px 12px;
     border-radius: 6px;
@@ -136,7 +139,7 @@
 .promo-discount-tag {
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
-    color: var(--gold, #c9a84c);
+    color: var(--gold, #8b5a2b);
     font-size: 1.4rem;
     line-height: 1;
 }
@@ -144,7 +147,7 @@
 .off-text {
     font-size: 0.75rem;
     font-weight: 400;
-    color: #f0ece0;
+    color: #3b2a20;
     display: block;
     text-align: right;
     margin-top: 2px;
@@ -154,14 +157,14 @@
 .promo-ticket-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem;
-    color: #f0ece0;
+    color: #3b2a20;
     font-weight: 600;
     margin-bottom: 8px;
     line-height: 1.2;
 }
 
 .promo-ticket-desc {
-    color: rgba(240, 236, 224, 0.6);
+    color: rgba(59, 42, 32, 0.65);
     font-size: 0.88rem;
     font-weight: 300;
     margin-bottom: 20px;
@@ -174,25 +177,25 @@
 
 /* Línea discontinua */
 .ticket-divider {
-    border-top: 1px dashed rgba(201, 168, 76, 0.2);
+    border-top: 1px dashed rgba(139, 90, 43, 0.35);
     margin-bottom: 15px;
     width: 100%;
 }
 
 /* Pie del ticket */
 .icon-gold {
-    color: var(--gold, #c9a84c);
+    color: var(--gold, #8b5a2b);
 }
 
 .target-name {
     font-size: 0.82rem;
     font-weight: 500;
-    color: #f0ece0;
+    color: #3b2a20;
 }
 
 .duration-label {
     font-size: 0.75rem;
-    color: rgba(240, 236, 224, 0.4);
+    color: rgba(59, 42, 32, 0.55);
     display: block;
 }
 
@@ -202,7 +205,6 @@
 
 .duration-date {
     font-size: 0.8rem;
-    color: var(--gold, #c9a84c);
+    color: var(--gold, #8b5a2b);
     font-weight: 500;
 }
-

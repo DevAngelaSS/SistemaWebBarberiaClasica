@@ -1,12 +1,13 @@
+/* Paleta: blanco y marrón */
 :root {
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --gold-dim: rgba(201, 168, 76, 0.12);
-    --bg: #0a0a0a;
-    --bg-card: #111111;
-    --text: #f0ece0;
-    --text-muted: rgba(240, 236, 224, 0.5);
-    --border: rgba(201, 168, 76, 0.2);
+    --gold: #8b5a2b;
+    --gold-light: #a6713a;
+    --gold-dim: rgba(139, 90, 43, 0.10);
+    --bg: #f7f3ef;
+    --bg-card: #ffffff;
+    --text: #3b2a20;
+    --text-muted: rgba(59, 42, 32, 0.6);
+    --border: rgba(139, 90, 43, 0.25);
 }
 
 body {
@@ -36,9 +37,9 @@ body {
 }
 
 .alert-ok {
-    background: rgba(46, 204, 113, 0.1);
-    border: 1px solid rgba(46, 204, 113, 0.3);
-    color: #2ecc71;
+    background: rgba(46, 139, 87, 0.10);
+    border: 1px solid rgba(46, 139, 87, 0.3);
+    color: #1f6f46;
     border-radius: 10px;
     padding: 14px 18px;
     margin-bottom: 24px;
@@ -57,11 +58,12 @@ body {
     flex-wrap: wrap;
     gap: 16px;
     align-items: center;
+    box-shadow: 0 4px 16px rgba(59, 42, 32, 0.06);
     transition: border-color 0.2s;
 }
 
 .cita-card:hover {
-    border-color: rgba(201, 168, 76, 0.4);
+    border-color: rgba(139, 90, 43, 0.5);
 }
 
 .cita-fecha-box {
@@ -99,6 +101,7 @@ body {
     font-weight: 700;
     font-size: 1rem;
     margin-bottom: 4px;
+    color: var(--text);
 }
 
 .cita-meta {
@@ -132,27 +135,28 @@ body {
 }
 
 .badge-pendiente {
-    background: rgba(201, 168, 76, 0.12);
+    background: rgba(139, 90, 43, 0.12);
     color: var(--gold);
-    border-color: rgba(201, 168, 76, 0.3);
+    border-color: rgba(139, 90, 43, 0.3);
 }
 
 .badge-aceptada {
-    background: rgba(46, 204, 113, 0.12);
-    color: #2ecc71;
-    border-color: rgba(46, 204, 113, 0.3);
+    background: rgba(46, 139, 87, 0.10);
+    color: #1f6f46;
+    border-color: rgba(46, 139, 87, 0.3);
 }
 
+/* Completada: marrón oscuro para distinguirla de pendiente */
 .badge-completada {
-    background: rgba(52, 152, 219, 0.12);
-    color: #3498db;
-    border-color: rgba(52, 152, 219, 0.3);
+    background: rgba(59, 42, 32, 0.10);
+    color: #3b2a20;
+    border-color: rgba(59, 42, 32, 0.3);
 }
 
 .badge-cancelada {
-    background: rgba(231, 76, 60, 0.12);
-    color: #e74c3c;
-    border-color: rgba(231, 76, 60, 0.3);
+    background: rgba(192, 57, 43, 0.10);
+    color: #a52f23;
+    border-color: rgba(192, 57, 43, 0.3);
 }
 
 .empty-state {
@@ -162,7 +166,7 @@ body {
 
 .empty-state .empty-icon {
     font-size: 3.5rem;
-    color: var(--border);
+    color: rgba(139, 90, 43, 0.35);
     margin-bottom: 16px;
 }
 
@@ -173,8 +177,8 @@ body {
 }
 
 .btn-gold {
-    background: linear-gradient(135deg, var(--gold), #9a7a30);
-    color: #0a0a0a;
+    background: linear-gradient(135deg, var(--gold), #5c4033);
+    color: #ffffff;
     font-weight: 700;
     border: none;
     padding: 12px 28px;
@@ -190,7 +194,7 @@ body {
 
 .btn-gold:hover {
     background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    color: #0a0a0a;
+    color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -246,7 +250,6 @@ body {
         align-items: center;
     }
 
-    /* Fecha */
     .cita-fecha-box {
         grid-column: 1;
         grid-row: 1 / 3;
@@ -256,14 +259,12 @@ body {
         font-size: 1.6rem;
     }
 
-    /* Divider vertical */
     .cita-divider {
         grid-column: 2;
         grid-row: 1 / 3;
         min-height: 50px;
     }
 
-    /* Info del servicio */
     .cita-info {
         grid-column: 3;
         grid-row: 1;
@@ -282,19 +283,17 @@ body {
         gap: 8px;
     }
 
-    /* Badge de estado */
     .cita-card>div:last-child {
         grid-column: 4;
         grid-row: 1;
     }
 
-    /* Precio — va en segunda fila */
     .cita-precio {
         grid-column: 3 / 5;
         grid-row: 2;
         font-size: 0.9rem;
         padding-top: 6px;
-        border-top: 1px solid rgba(201, 168, 76, 0.1);
+        border-top: 1px solid rgba(59, 42, 32, 0.10);
     }
 
     .badge-estado {
@@ -336,27 +335,27 @@ body {
 }
 
 .btn-reprogramar {
-    background: rgba(201, 168, 76, 0.15);
-    color: #c9a84c;
-    border: 1px solid rgba(201, 168, 76, 0.3);
+    background: rgba(139, 90, 43, 0.12);
+    color: #8b5a2b;
+    border: 1px solid rgba(139, 90, 43, 0.3);
 }
 
 .btn-reprogramar:hover {
-    background: rgba(201, 168, 76, 0.3);
+    background: rgba(139, 90, 43, 0.25);
 }
 
 .btn-cancelar {
-    background: rgba(231, 76, 60, 0.12);
-    color: #e74c3c;
-    border: 1px solid rgba(231, 76, 60, 0.25);
+    background: rgba(192, 57, 43, 0.08);
+    color: #a52f23;
+    border: 1px solid rgba(192, 57, 43, 0.25);
 }
 
 .btn-cancelar:hover {
-    background: rgba(231, 76, 60, 0.25);
+    background: rgba(192, 57, 43, 0.18);
 }
 
 .btn-cancelar-confirm {
-    background: #e74c3c;
+    background: #c0392b;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -367,7 +366,7 @@ body {
 }
 
 .btn-cancelar-confirm:hover {
-    background: #c0392b;
+    background: #a52f23;
 }
 
 /* ── Paginación ── */
@@ -375,9 +374,9 @@ body {
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: rgba(201, 168, 76, 0.1);
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    color: #c9a84c;
+    background: rgba(139, 90, 43, 0.10);
+    border: 1px solid rgba(139, 90, 43, 0.3);
+    color: #8b5a2b;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -386,57 +385,58 @@ body {
 }
 
 .btn-pag:hover {
-    background: rgba(201, 168, 76, 0.25);
-    color: #c9a84c;
+    background: rgba(139, 90, 43, 0.22);
+    color: #8b5a2b;
 }
 
 .pag-info {
-    color: #aaa;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
+/* ── Modal reprogramar: lista de barberos ── */
 #reprBarberoList .barbero-card {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
     border-radius: 10px;
-    border: 1px solid rgba(201,168,76,0.2);
-    background: #1a1a1a;
+    border: 1px solid rgba(139, 90, 43, 0.25);
+    background: #ffffff;
     cursor: pointer;
     transition: all 0.2s;
 }
 #reprBarberoList .barbero-card:hover {
-    border-color: rgba(201,168,76,0.5);
-    background: #222;
+    border-color: rgba(139, 90, 43, 0.55);
+    background: #f3ece6;
 }
 #reprBarberoList .barbero-card.selected {
-    border-color: #c9a84c;
-    background: rgba(201,168,76,0.1);
+    border-color: #8b5a2b;
+    background: rgba(139, 90, 43, 0.10);
 }
 #reprBarberoList .barbero-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(201,168,76,0.15);
+    background: rgba(139, 90, 43, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #c9a84c;
+    color: #8b5a2b;
     font-size: 1rem;
     flex-shrink: 0;
 }
 #reprBarberoList .barbero-name {
     font-weight: 600;
-    color: #f0ece0;
+    color: #3b2a20;
     font-size: 0.95rem;
 }
 #reprBarberoList .barbero-sub {
     font-size: 0.8rem;
-    color: #aaa;
+    color: rgba(59, 42, 32, 0.6);
 }
 #reprBarberoList .check-icon {
-    color: #c9a84c;
+    color: #8b5a2b;
     font-size: 1.1rem;
 }
 
@@ -449,49 +449,51 @@ body {
 #reprHorasGrid .hora-btn {
     padding: 6px 12px;
     border-radius: 6px;
-    border: 1px solid rgba(201,168,76,0.3);
-    background: #1a1a1a;
-    color: #f0ece0;
+    border: 1px solid rgba(139, 90, 43, 0.3);
+    background: #ffffff;
+    color: #3b2a20;
     font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.2s;
 }
 #reprHorasGrid .hora-btn:hover:not(:disabled) {
-    border-color: #c9a84c;
-    background: rgba(201,168,76,0.1);
+    border-color: #8b5a2b;
+    background: rgba(139, 90, 43, 0.10);
 }
 #reprHorasGrid .hora-btn.selected {
-    background: #c9a84c;
-    color: #0a0a0a;
-    border-color: #c9a84c;
+    background: #8b5a2b;
+    color: #ffffff;
+    border-color: #8b5a2b;
     font-weight: 700;
 }
 #reprHorasGrid .hora-btn.ocupada {
-    opacity: 0.35;
+    opacity: 0.45;
     cursor: not-allowed;
-    border-color: rgba(255,255,255,0.1);
-    color: #666;
+    border-color: rgba(59, 42, 32, 0.15);
+    background: #f1ebe5;
+    color: rgba(59, 42, 32, 0.45);
 }
 
 /* ── Input fecha en modal ── */
 #reprFecha {
-    background: #1a1a1a;
-    border: 1px solid rgba(201,168,76,0.3);
+    background: #ffffff;
+    border: 1px solid rgba(139, 90, 43, 0.3);
     border-radius: 8px;
-    color: #f0ece0;
+    color: #3b2a20;
     padding: 10px 14px;
     font-size: 0.9rem;
     width: 100%;
     outline: none;
 }
 #reprFecha:focus {
-    border-color: #c9a84c;
+    border-color: #8b5a2b;
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.15);
 }
 
 .modal-content .btn-outline {
     background: transparent;
-    border: 1px solid rgba(201,168,76,0.4);
-    color: #c9a84c;
+    border: 1px solid rgba(139, 90, 43, 0.4);
+    color: #8b5a2b;
     border-radius: 8px;
     padding: 8px 20px;
     font-weight: 600;
@@ -499,8 +501,8 @@ body {
     transition: all 0.2s;
 }
 .modal-content .btn-outline:hover {
-    background: rgba(201,168,76,0.1);
-    border-color: #c9a84c;
+    background: rgba(139, 90, 43, 0.10);
+    border-color: #8b5a2b;
 }
 .btn-accion {
     display: flex;

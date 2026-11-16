@@ -1,5 +1,24 @@
+<<<<<<< Updated upstream
 ﻿.env
 target/
 .idea/
 .vscode/
 *.class
+=======
+/target/
+*.class
+
+# Configuraciones del IDE (VS Code / Eclipse / IntelliJ)
+.vscode/
+.settings/
+.classpath
+.project
+*.iml
+*.iws
+
+# Sistema operativo y temporales
+.DS_Store
+Thumbs.db
+.env
+uploads/
+>>>>>>> Stashed changes
