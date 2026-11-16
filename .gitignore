@@ -1,9 +1,18 @@
-<<<<<<< HEAD
-.env
-=======
-﻿.env
+/target/
 target/
+*.class
+
+# Configuraciones del IDE (VS Code / Eclipse / IntelliJ)
 .idea/
 .vscode/
-*.class
->>>>>>> ReneDamian-18
+.settings/
+.classpath
+.project
+*.iml
+*.iws
+
+# Sistema operativo y temporales
+.DS_Store
+Thumbs.db
+.env
+uploads/
