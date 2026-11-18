@@ -9,16 +9,18 @@
     <meta name="_csrf-header" content="X-CSRF-TOKEN" />
     <style>
         .pedido-row {
-            background: #1a1a1f;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid rgba(59, 42, 32, 0.12);
             border-radius: 12px;
             padding: 18px 20px;
             margin-bottom: 12px;
-            transition: border-color 0.2s;
+            box-shadow: 0 4px 16px rgba(59, 42, 32, 0.06);
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .pedido-row:hover {
-            border-color: rgba(201, 168, 76, 0.25);
+            border-color: rgba(139, 90, 43, 0.45);
+            box-shadow: 0 8px 24px rgba(59, 42, 32, 0.12);
         }
 
         .pedido-top {
@@ -33,18 +35,18 @@
         .pedido-id {
             font-size: 0.95rem;
             font-weight: 700;
-            color: #c9a84c;
+            color: #8b5a2b;
             font-family: monospace;
         }
 
         .pedido-cliente {
-            color: #f0ece0;
+            color: #3b2a20;
             font-weight: 600;
             font-size: 0.9rem;
         }
 
         .pedido-fecha {
-            color: #888;
+            color: rgba(59, 42, 32, 0.6);
             font-size: 0.8rem;
             margin-top: 2px;
         }
@@ -54,7 +56,7 @@
             align-items: center;
             gap: 10px;
             padding: 6px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(59, 42, 32, 0.08);
         }
 
         .detalle-item:last-child {
@@ -67,23 +69,32 @@
             border-radius: 6px;
             object-fit: cover;
             flex-shrink: 0;
-            border: 1px solid rgba(201, 168, 76, 0.15);
+            background: #efe6df;
+            border: 1px solid rgba(139, 90, 43, 0.25);
         }
 
         .detalle-nombre {
-            color: #f0ece0;
+            color: #3b2a20;
             font-size: 0.85rem;
             font-weight: 600;
         }
 
         .detalle-meta {
-            color: #888;
+            color: rgba(59, 42, 32, 0.6);
             font-size: 0.78rem;
+        }
+
+        .detalle-meta span[style*="line-through"] {
+            color: rgba(59, 42, 32, 0.4) !important;
+        }
+
+        .detalle-meta strong[style*="color"] {
+            color: #8b5a2b !important;
         }
 
         .detalle-sub {
             margin-left: auto;
-            color: #c9a84c;
+            color: #8b5a2b;
             font-weight: 700;
             font-size: 0.85rem;
         }
@@ -94,19 +105,31 @@
             align-items: center;
             margin-top: 14px;
             padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(59, 42, 32, 0.1);
             flex-wrap: wrap;
             gap: 10px;
+        }
+
+        .pedido-bottom span[style*="color:#888"] {
+            color: rgba(59, 42, 32, 0.6) !important;
+        }
+
+        .pedido-bottom a[style*="color:#c9a84c"] {
+            color: #8b5a2b !important;
+            font-weight: 600;
+        }
+
+        .pedido-bottom a[style*="color:#c9a84c"]:hover {
+            text-decoration: underline !important;
         }
 
         .pedido-total-val {
             font-size: 1.1rem;
             font-weight: 700;
-            color: #2ecc71;
+            color: #1f6f46;
             font-family: monospace;
         }
 
-        /* Badges */
         .bp {
             padding: 4px 12px;
             border-radius: 20px;
@@ -115,42 +138,89 @@
         }
 
         .bp-pendiente {
-            background: rgba(255, 193, 7, 0.15);
-            color: #ffc107;
-            border: 1px solid rgba(255, 193, 7, 0.3);
+            background: rgba(183, 121, 31, 0.12);
+            color: #8a5a00;
+            border: 1px solid rgba(183, 121, 31, 0.4);
         }
 
         .bp-aceptado {
-            background: rgba(46, 204, 113, 0.12);
-            color: #2ecc71;
-            border: 1px solid rgba(46, 204, 113, 0.3);
+            background: rgba(46, 139, 87, 0.12);
+            color: #1f6f46;
+            border: 1px solid rgba(46, 139, 87, 0.35);
         }
 
         .bp-rechazado {
-            background: rgba(231, 76, 60, 0.12);
-            color: #e74c3c;
-            border: 1px solid rgba(231, 76, 60, 0.3);
+            background: rgba(192, 57, 43, 0.1);
+            color: #a52f23;
+            border: 1px solid rgba(192, 57, 43, 0.3);
         }
 
-        /* Filtros tabs */
+        .bp-entregado {
+            background: #efe6df;
+            color: #5c4033;
+            border: 1px solid rgba(59, 42, 32, 0.3);
+        }
+
         .tab-filtro {
             padding: 7px 20px;
             border-radius: 8px;
-            border: none;
-            background: #1a1a1f;
-            color: #aaa;
+            background: #ffffff;
+            color: #5c4033;
             font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(59, 42, 32, 0.2);
         }
 
         .tab-filtro.active,
         .tab-filtro:hover {
-            background: rgba(201, 168, 76, 0.12);
-            color: #c9a84c;
-            border-color: rgba(201, 168, 76, 0.3);
+            background: #8b5a2b;
+            color: #ffffff;
+            border-color: #8b5a2b;
+        }
+
+        #modalConfirmarPedido .modal-content,
+        #modalComprobante .modal-content {
+            background: #ffffff !important;
+            color: #3b2a20 !important;
+            border: 1px solid rgba(139, 90, 43, 0.3) !important;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(59, 42, 32, 0.25);
+        }
+
+        #modalConfirmarPedido .modal-title {
+            color: #3b2a20 !important;
+        }
+
+        #modalConfirmarPedido #modalConfirmarMensaje {
+            color: rgba(59, 42, 32, 0.75) !important;
+        }
+
+        #modalConfirmarPedido .btn-outline-secondary {
+            color: #8b5a2b;
+            border-color: rgba(139, 90, 43, 0.5);
+        }
+
+        #modalConfirmarPedido .btn-outline-secondary:hover {
+            background: #8b5a2b;
+            border-color: #8b5a2b;
+            color: #ffffff;
+        }
+
+        #modalComprobante .modal-header {
+            background: #efe6df;
+            border-color: rgba(59, 42, 32, 0.12) !important;
+            border-radius: 16px 16px 0 0;
+        }
+
+        #modalComprobante .modal-title {
+            color: #8b5a2b !important;
+        }
+
+        #modalComprobante .btn-close-white {
+            filter: none;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -186,6 +256,9 @@
                 <button class="tab-filtro" onclick="filtrarPedidos('aceptado', this)">
                     <i class="fa-solid fa-circle-check me-1"></i> Aceptados
                 </button>
+                <button class="tab-filtro" onclick="filtrarPedidos('entregado', this)">
+                    <i class="fa-solid fa-handshake me-1"></i> Entregados
+                </button>
                 <button class="tab-filtro" onclick="filtrarPedidos('rechazado', this)">
                     <i class="fa-solid fa-xmark me-1"></i> Rechazados
                 </button>
@@ -194,7 +267,7 @@
             <!-- Lista de pedidos -->
             <div id="listaPedidos">
                 <div th:each="pedido : ${pedidos}" class="pedido-row"
-                    th:data-estado="${pedido.estado == 1 ? 'pendiente' : (pedido.estado == 2 ? 'aceptado' : 'rechazado')}"
+                    th:data-estado="${pedido.estado == 1 ? 'pendiente' : (pedido.estado == 2 ? 'aceptado' : (pedido.estado == 3 ? 'entregado' : 'rechazado'))}"
                     th:attr="data-pedido-id=${pedido.id}">
                     <div class="pedido-top">
                         <div>
@@ -212,6 +285,9 @@
                             </span>
                             <span th:case="2" class="bp bp-aceptado">
                                 <i class="fa-solid fa-circle-check me-1"></i>Aceptado
+                            </span>
+                            <span th:case="3" class="bp bp-entregado">
+                                <i class="fa-solid fa-handshake me-1"></i>Entregado
                             </span>
                             <span th:case="0" class="bp bp-rechazado">
                                 <i class="fa-solid fa-xmark me-1"></i>Rechazado
