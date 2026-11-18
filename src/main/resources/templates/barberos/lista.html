@@ -6,85 +6,135 @@
     <div th:replace="~{layout/sidebar :: head_comun}"></div>
     <link rel="stylesheet" th:href="@{/css/barberos.css}">
     <style>
-        /* Estilos específicos para acoplar la vista al diseño oscuro de La Clásica */
-        .bg-dark-table {
-            background-color: #1a1a1f !important;
-            /* Fondo de la card y footer */
+        .main-content h2.text-white {
+            color: #3b2a20 !important;
         }
 
-        /* Contenedor principal del buscador estilo image_d3ba3e.png */
+        .main-content h2 i {
+            color: #8b5a2b !important;
+        }
+
+        .bg-dark-table {
+            background-color: #ffffff !important;
+            border: 1px solid rgba(59, 42, 32, 0.12) !important;
+            box-shadow: 0 4px 20px rgba(59, 42, 32, 0.08) !important;
+        }
+
+        .bg-dark-table .text-white {
+            color: #3b2a20 !important;
+        }
+
+        .bg-dark-table .text-secondary {
+            color: rgba(59, 42, 32, 0.6) !important;
+        }
+
         .search-box-container {
-            background-color: #212126 !important;
-            border: 1px solid #2d2d35;
-            border-radius: 6px;
+            background-color: #ffffff !important;
+            border: 1px solid rgba(139, 90, 43, 0.35);
+            border-radius: 8px;
             overflow: hidden;
-            height: 38px;
+            height: 40px;
+            box-shadow: 0 2px 10px rgba(59, 42, 32, 0.06);
+        }
+
+        .search-box-container:focus-within {
+            border-color: #8b5a2b;
+            box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.15);
         }
 
         .search-icon {
-            color: #888894 !important;
+            color: #8b5a2b !important;
             font-size: 0.95rem;
         }
 
-        .search-input {
+        .search-box-container .search-input {
+            background: transparent !important;
+            color: #3b2a20 !important;
             box-shadow: none !important;
             outline: none !important;
             font-size: 0.9rem;
         }
 
         .search-input::placeholder {
-            color: #6c757d !important;
-            opacity: 0.8;
+            color: rgba(59, 42, 32, 0.45) !important;
         }
 
-        /* Forzar modo oscuro en la tabla y filas */
         .table-dark-custom {
-            background-color: #1a1a1f !important;
-            color: #ffffff !important;
-        }
-
-        .table-dark-custom thead tr {
-            background-color: #212126 !important;
-            border-bottom: 2px solid #2d2d35;
-        }
-
-        .table-dark-custom th {
-            color: #888894 !important;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            background-color: #ffffff !important;
         }
 
         .table-dark-custom tbody tr {
-            border-bottom: 1px solid #2d2d35 !important;
-            background-color: #1a1a1f !important;
+            background-color: #ffffff !important;
+            border-bottom: 1px solid rgba(59, 42, 32, 0.08) !important;
         }
 
         .table-dark-custom tbody tr:hover {
-            background-color: #212126 !important;
+            background-color: #f3ece6 !important;
         }
 
-        /* Botones y paginación */
-        .bg-dark-btn {
-            background-color: #212126 !important;
+        .table-dark-custom tbody td.fw-bold {
+            color: #3b2a20 !important;
+        }
+
+        .badge-dia {
+            background: #efe6df;
+            color: #8b5a2b;
+            border: 1px solid rgba(139, 90, 43, 0.4);
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-naranja {
+            background: linear-gradient(135deg, #8b5a2b, #5c4033) !important;
             color: #ffffff !important;
+            border: none;
+        }
+
+        .btn-naranja:hover {
+            opacity: 0.9;
+        }
+
+        .bg-dark-btn {
+            background-color: #efe6df !important;
+            color: #3b2a20 !important;
             transition: background 0.2s;
         }
 
         .bg-dark-btn:hover {
-            background-color: #2c2c35 !important;
+            background-color: #8b5a2b !important;
             color: #ffffff !important;
         }
 
-        .btn-naranja {
-            background-color: var(--naranja, #ff5722) !important;
-            color: white !important;
+        .page-item.disabled .page-link {
+            background-color: #f3ece6 !important;
+            color: rgba(59, 42, 32, 0.4) !important;
+            opacity: 0.6;
+            pointer-events: none;
         }
 
-        .page-item.disabled .page-link {
-            background-color: #141418 !important;
-            color: #44444c !important;
-            opacity: 0.4;
-            pointer-events: none;
+        .card-footer .form-select {
+            background-color: #ffffff !important;
+            color: #3b2a20 !important;
+            border: 1px solid rgba(59, 42, 32, 0.2) !important;
+        }
+
+        .alert.bg-dark.alert-success {
+            background-color: rgba(46, 139, 87, 0.1) !important;
+            border-color: rgba(46, 139, 87, 0.3) !important;
+            color: #1f6f46 !important;
+        }
+
+        .alert.bg-dark.alert-danger {
+            background-color: rgba(192, 57, 43, 0.1) !important;
+            border-color: rgba(192, 57, 43, 0.3) !important;
+            color: #a52f23 !important;
+        }
+
+        .alert .btn-close-white {
+            filter: none;
         }
     </style>
 </head>
