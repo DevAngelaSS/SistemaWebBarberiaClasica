@@ -6,6 +6,7 @@
     <div th:replace="~{layout/sidebar :: head_comun}"></div>
     <link rel="stylesheet" th:href="@{/css/dashboard.css}">
     <style>
+<<<<<<< HEAD
         .main-content h2.text-white {
             color: #3b2a20 !important;
         }
@@ -163,6 +164,16 @@
             cursor: not-allowed;
         }
 
+=======
+        /* Campo solo lectura */
+        .form-control[readonly] {
+            background-color: #f1ebe5 !important;
+            color: rgba(59, 42, 32, 0.7) !important;
+            cursor: not-allowed;
+        }
+
+        /* Sección contraseña */
+>>>>>>> JoseRumiche
         .seccion-password {
             background: #f7f3ef;
             border: 1px solid rgba(139, 90, 43, 0.25);
@@ -181,7 +192,7 @@
     </style>
 </head>
 
-<body class="bg-light">
+<body>
 
     <div th:replace="~{layout/sidebar :: sidebar_menu(activePage='clientes')}"></div>
 
@@ -190,28 +201,41 @@
 
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
-                    <h2 class="fw-bold mb-0 text-white">
-                        <i class="fa-solid fa-user-group me-2" style="color:#ff6b2b"></i>Clientes
+                    <h2 class="fw-bold mb-0" style="color:var(--text-primary);">
+                        <i class="fa-solid fa-user-group me-2" style="color:var(--accent)"></i>Clientes
                     </h2>
                     <small class="text-muted">Gestión de clientes registrados</small>
                 </div>
+<<<<<<< HEAD
                 <button class="btn btn-naranja shadow-sm fw-bold px-3 rounded-2" data-bs-toggle="modal"
                     data-bs-target="#modalNuevo">
+=======
+                <button class="btn btn-primary shadow-sm fw-bold px-3 rounded-2"
+                        data-bs-toggle="modal" data-bs-target="#modalNuevo">
+>>>>>>> JoseRumiche
                     <i class="fa-solid fa-user-plus me-2"></i> Nuevo Cliente
                 </button>
             </div>
 
+<<<<<<< HEAD
             <div th:if="${exito}"
                 class="alert alert-success alert-dismissible fade show bg-dark border-success text-success">
+=======
+            <div th:if="${exito}" class="alert alert-success alert-dismissible fade show">
+>>>>>>> JoseRumiche
                 <i class="fa-solid fa-circle-check me-2"></i>
                 <span th:text="${exito}"></span>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
+<<<<<<< HEAD
             <div th:if="${error}"
                 class="alert alert-danger alert-dismissible fade show bg-dark border-danger text-danger">
+=======
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show">
+>>>>>>> JoseRumiche
                 <i class="fa-solid fa-circle-xmark me-2"></i>
                 <span th:text="${error}"></span>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
 
             <div class="d-flex justify-content-end mb-4">
@@ -222,20 +246,29 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
                         <input type="text" name="search" id="current-search" th:value="${search}"
+<<<<<<< HEAD
                             class="form-control search-input bg-transparent text-white border-0"
                             placeholder="Buscar por cliente, DNI..." autocomplete="off">
                         <a th:if="${search != null and !search.isEmpty()}" th:href="@{/admin/cliente(size=${size})}"
                             class="btn border-0 text-muted px-3" title="Limpiar filtro">
+=======
+                               class="form-control search-input border-0"
+                               placeholder="Buscar por cliente, DNI..."
+                               autocomplete="off">
+                        <a th:if="${search != null and !search.isEmpty()}"
+                           th:href="@{/admin/cliente(size=${size})}"
+                           class="btn border-0 text-muted px-3" title="Limpiar filtro">
+>>>>>>> JoseRumiche
                             <i class="fa-solid fa-xmark"></i>
                         </a>
                     </div>
                 </form>
             </div>
 
-            <div class="card shadow-sm border-0 rounded-3 bg-dark-table overflow-hidden">
+            <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
                 <div class="card-body p-0">
                     <div class="table-responsive">
-                        <table class="table table-dark-custom align-middle mb-0">
+                        <table class="table table-hover align-middle mb-0">
                             <thead class="text-uppercase small">
                                 <tr>
                                     <th class="ps-4">Cliente</th>
@@ -255,12 +288,17 @@
                                                 th:text="${#strings.substring(c.nombres,0,1).toUpperCase()}">
                                             </div>
                                             <div>
+<<<<<<< HEAD
                                                 <div class="fw-bold text-white"
                                                     th:text="${c.nombres + ' ' + c.apellidos}"></div>
+=======
+                                                <div class="fw-bold"
+                                                     th:text="${c.nombres + ' ' + c.apellidos}"></div>
+>>>>>>> JoseRumiche
                                             </div>
                                         </div>
                                     </td>
-                                    <td th:text="${c.dni}" class="fw-bold text-white"></td>
+                                    <td th:text="${c.dni}" class="fw-bold"></td>
                                     <td th:text="${c.telefono ?: '—'}"></td>
                                     <td th:text="${c.correo ?: '—'}"></td>
                                     <td th:text="${#temporals.format(c.fechaRegistro,'dd/MM/yyyy')}"></td>
@@ -283,7 +321,11 @@
                                 <tr th:if="${#lists.isEmpty(clientes)}">
                                     <td colspan="7" class="text-center text-muted py-5">
                                         <i class="fa-solid fa-user-group fa-2x mb-3 d-block"
+<<<<<<< HEAD
                                             style="color:#ff6b2b; opacity:0.3"></i>
+=======
+                                           style="color:var(--accent); opacity:0.3"></i>
+>>>>>>> JoseRumiche
                                         No se encontraron clientes con los criterios especificados.
                                     </td>
                                 </tr>
@@ -291,8 +333,13 @@
                         </table>
                     </div>
 
+<<<<<<< HEAD
                     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 px-4 py-3 border-top border-secondary"
                         th:if="${totalPages > 0}">
+=======
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 px-4 py-3 border-top"
+                         th:if="${totalPages > 0}">
+>>>>>>> JoseRumiche
                         <div class="d-flex align-items-center gap-2">
                             <span class="text-muted small">Mostrar</span>
                             <select class="select-size" id="select-size-pages">
@@ -320,8 +367,8 @@
                         </div>
 
                         <div class="text-muted small">
-                            Página <span class="text-white fw-bold" th:text="${currentPage + 1}">1</span>
-                            de <span class="text-white fw-bold" th:text="${totalPages}">1</span>
+                            Página <span class="fw-bold" style="color:var(--text-primary)" th:text="${currentPage + 1}">1</span>
+                            de <span class="fw-bold" style="color:var(--text-primary)" th:text="${totalPages}">1</span>
                         </div>
                     </div>
                 </div>
@@ -329,12 +376,10 @@
         </div>
     </div>
 
-    <!-- ══════════════════════════════════════════ -->
-    <!-- MODAL NUEVO CLIENTE                        -->
-    <!-- ══════════════════════════════════════════ -->
+    <!-- ══════════ MODAL NUEVO CLIENTE ══════════ -->
     <div class="modal fade" id="modalNuevo" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content border-0 shadow text-dark">
+            <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title fw-bold">
                         <i class="fa-solid fa-user-plus me-2"></i>Registrar Cliente
@@ -345,7 +390,6 @@
                     <div class="modal-body p-4">
                         <div class="row g-3">
 
-                            <!-- DNI con buscador -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">DNI</label>
                                 <div class="input-dni-group">
@@ -357,14 +401,12 @@
                                 </div>
                             </div>
 
-                            <!-- Teléfono -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">Teléfono</label>
                                 <input type="text" id="telefonoInput" name="telefono" class="form-control" maxlength="9"
                                     placeholder="9 dígitos">
                             </div>
 
-                            <!-- Nombres (readonly, lo llena la API) -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">
                                     Nombres
@@ -374,7 +416,6 @@
                                     required placeholder="Busca el DNI primero">
                             </div>
 
-                            <!-- Apellidos (readonly, lo llena la API) -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">
                                     Apellidos
@@ -384,14 +425,12 @@
                                     required placeholder="Busca el DNI primero">
                             </div>
 
-                            <!-- Correo -->
                             <div class="col-12">
                                 <label class="form-label fw-bold small text-uppercase">Correo electrónico</label>
                                 <input type="email" id="correoInput" name="correo" class="form-control"
                                     placeholder="cliente@gmail.com">
                             </div>
 
-                            <!-- Info contraseña automática -->
                             <div class="col-12">
                                 <div class="alert alert-info py-2 mb-0" style="font-size:0.82rem;">
                                     <i class="fa-solid fa-info-circle me-1"></i>
@@ -413,12 +452,10 @@
         </div>
     </div>
 
-    <!-- ══════════════════════════════════════════ -->
-    <!-- MODAL EDITAR CLIENTE                       -->
-    <!-- ══════════════════════════════════════════ -->
+    <!-- ══════════ MODAL EDITAR CLIENTE ══════════ -->
     <div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content border-0 shadow text-dark">
+            <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-warning text-dark">
                     <h5 class="modal-title fw-bold">
                         <i class="fa-solid fa-user-pen me-2"></i>Editar Datos del Cliente
@@ -430,20 +467,17 @@
                     <div class="modal-body p-4">
                         <div class="row g-3">
 
-                            <!-- DNI: solo lectura -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">DNI</label>
                                 <input type="text" id="edit-dni" name="dni" class="form-control" readonly>
                             </div>
 
-                            <!-- Teléfono: editable -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">Teléfono</label>
                                 <input type="text" id="edit-telefono" name="telefono" class="form-control" maxlength="9"
                                     placeholder="9 dígitos">
                             </div>
 
-                            <!-- Nombres: solo lectura (definido por RENIEC) -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">
                                     Nombres
@@ -453,7 +487,6 @@
                                 <input type="text" id="edit-nombres" name="nombres" class="form-control" readonly>
                             </div>
 
-                            <!-- Apellidos: solo lectura (definido por RENIEC) -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">
                                     Apellidos
@@ -463,14 +496,12 @@
                                 <input type="text" id="edit-apellidos" name="apellidos" class="form-control" readonly>
                             </div>
 
-                            <!-- Correo: editable -->
                             <div class="col-12">
                                 <label class="form-label fw-bold small text-uppercase">Correo electrónico</label>
                                 <input type="email" id="edit-correo" name="correo" class="form-control"
                                     placeholder="cliente@gmail.com">
                             </div>
 
-                            <!-- ── Sección cambio de contraseña ── -->
                             <div class="col-12 mt-2">
                                 <div class="seccion-password">
                                     <div class="seccion-titulo">
@@ -483,15 +514,19 @@
                                     </div>
                                     <div class="row g-3">
 
-                                        <!-- Nueva contraseña -->
                                         <div class="col-md-6">
-                                            <label class="form-label fw-bold small text-uppercase">
-                                                Nueva Contraseña
-                                            </label>
+                                            <label class="form-label fw-bold small text-uppercase">Nueva Contraseña</label>
                                             <div class="input-group">
+<<<<<<< HEAD
                                                 <input type="password" id="edit-nueva-password" name="nuevaPassword"
                                                     class="form-control" placeholder="Mín. 6 caracteres" maxlength="30"
                                                     autocomplete="new-password">
+=======
+                                                <input type="password" id="edit-nueva-password"
+                                                       name="nuevaPassword" class="form-control"
+                                                       placeholder="Mín. 6 caracteres" maxlength="30"
+                                                       autocomplete="new-password">
+>>>>>>> JoseRumiche
                                                 <button type="button" class="btn btn-outline-secondary"
                                                     onclick="togglePassword('edit-nueva-password', this)"
                                                     title="Mostrar/ocultar">
@@ -500,15 +535,19 @@
                                             </div>
                                         </div>
 
-                                        <!-- Confirmar contraseña -->
                                         <div class="col-md-6">
-                                            <label class="form-label fw-bold small text-uppercase">
-                                                Confirmar Contraseña
-                                            </label>
+                                            <label class="form-label fw-bold small text-uppercase">Confirmar Contraseña</label>
                                             <div class="input-group">
+<<<<<<< HEAD
                                                 <input type="password" id="edit-confirmar-password" class="form-control"
                                                     placeholder="Repite la contraseña" maxlength="30"
                                                     autocomplete="new-password">
+=======
+                                                <input type="password" id="edit-confirmar-password"
+                                                       class="form-control"
+                                                       placeholder="Repite la contraseña" maxlength="30"
+                                                       autocomplete="new-password">
+>>>>>>> JoseRumiche
                                                 <button type="button" class="btn btn-outline-secondary"
                                                     onclick="togglePassword('edit-confirmar-password', this)"
                                                     title="Mostrar/ocultar">
