@@ -50,7 +50,7 @@
                             </thead>
                             <tbody>
                                 <tr th:each="prov : ${proveedores}">
-                                    <td class="ps-4 fw-semibold text-white" th:text="${prov.nombre}"></td>
+                                    <td class="ps-4 fw-semibold" th:text="${prov.nombre}"></td>
                                     <td class="font-monospace text-muted"
                                         th:text="${prov.ruc != null && !prov.ruc.isEmpty() ? prov.ruc : '---'}"></td>
                                     <td
