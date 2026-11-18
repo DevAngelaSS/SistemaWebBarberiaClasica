@@ -46,17 +46,18 @@ public class DataInitializer implements CommandLineRunner {
         crearPermisoSiNoExiste("GESTION_PROVEDORES", "Provedores", "Gestionar los provedores");
         crearPermisoSiNoExiste("GESTION_INVENTARIO", "INVENTARIO", "Gestionar el stock de los productos");
 
+        crearPermisoSiNoExiste("GESTION_RECEPCION", "Recepción de Sillas", "Atender sillas y cobrar en caja");
+        crearPermisoSiNoExiste("GESTION_PEDIDOS", "Pedidos Online", "Aceptar, rechazar y entregar pedidos");
+        crearPermisoSiNoExiste("GESTION_NOTAS_VENTA", "Notas de Venta", "Consultar notas de venta");
+
         // 2. Crear perfiles si no existen (Buscando por nombre para evitar problemas de
         // ID)
         Perfil adminPerfil = crearPerfilSiNoExiste("Administrador", "Acceso total");
         crearPerfilSiNoExiste("Secretario", "Gestión de citas y clientes");
 
-        // 3. Asignar todos los permisos al admin si no tiene ninguno
-        if (adminPerfil.getPermisos() == null || adminPerfil.getPermisos().isEmpty()) {
-            List<Permiso> todosLosPermisos = permisoRepository.findAll();
-            adminPerfil.setPermisos(todosLosPermisos);
-            adminPerfil = perfilRepository.save(adminPerfil);
-        }
+        // 3. Asignar todos los permisos al admin 
+        adminPerfil.setPermisos(permisoRepository.findAll());
+        adminPerfil = perfilRepository.save(adminPerfil);
 
         // 4. Crear usuario admin si no existe
         if (!usuarioRepository.existsByEmail("admin@gmail.com")) {

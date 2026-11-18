@@ -37,10 +37,13 @@
             </a>
 
             <!-- CLIENTES -->
-            <a th:href="${#authorization.expression('hasRole(''ROLE_ADMINISTRADOR'')')} ? '/admin/cliente' : '/secretario/cliente'"
+            <a th:if="${#authorization.expression('hasAuthority(''GESTION_CLIENTES'')')}"
+                th:href="${#authorization.expression('hasRole(''ADMINISTRADOR'')')} ? '/admin/cliente' : '/secretario/cliente'"
                 class="nav-link" th:classappend="${activePage == 'clientes' ? ' active' : ''}">
                 <i class="fa-solid fa-users me-2"></i> Clientes
             </a>
+
+
 
             <!-- BARBEROS -->
             <a th:if="${#authorization.expression('hasAuthority(''GESTION_USUARIOS'')')}" href="/admin/barberos"
@@ -108,21 +111,21 @@
                 <i class="fa-solid fa-tag"></i> Promociones
             </a>
             <!-- RECEPCIÓN SILLAS -->
-            <a th:href="@{/secretario/recepcion}" sec:authorize="hasRole('SECRETARIO')" class="nav-link"
+            <a th:href="@{/secretario/recepcion}" sec:authorize="hasAuthority('GESTION_RECEPCION')" class="nav-link"
                 th:classappend="${activePage == 'recepcion'} ? ' active' : ''">
                 <i class="fa-solid fa-chair"></i> Recepción Sillas
             </a>
 
-            <a th:href="@{/secretario/pedidos}" sec:authorize="hasRole('SECRETARIO')" class="nav-link"
+            <a th:href="@{/secretario/pedidos}" sec:authorize="hasAuthority('GESTION_PEDIDOS')" class="nav-link"
                 th:classappend="${activePage == 'recepcion_pedidos'} ? ' active' : ''">
                 <i class="fa-solid fa-boxes-packing"></i> Recepción Pedidos
             </a>
-            <a th:href="@{/secretario/pedidos/aceptados}" sec:authorize="hasRole('SECRETARIO')" class="nav-link"
+            <a th:href="@{/secretario/pedidos/aceptados}" sec:authorize="hasAuthority('GESTION_PEDIDOS')" class="nav-link"
                 th:classappend="${activePage == 'pedidos_aceptados'} ? ' active' : ''">
                 <i class="fa-solid fa-box-open"></i> Entrega de Pedidos
             </a>
             <!-- NOTAS DE VENTA ← agregar esto -->
-            <a th:href="@{/secretario/recepcion/notas-venta}" sec:authorize="hasRole('SECRETARIO')" class="nav-link"
+            <a th:href="@{/secretario/recepcion/notas-venta}" sec:authorize="hasAuthority('GESTION_NOTAS_VENTA')" class="nav-link"
                 th:classappend="${activePage == 'notas'} ? ' active' : ''">
                 <i class="fa-solid fa-receipt"></i> Notas de Venta
             </a>

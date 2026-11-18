@@ -56,7 +56,12 @@ public class SecurityConfig {
                         .requestMatchers("/admin/productos").hasAnyRole("ADMINISTRADOR", "SECRETARIO") // Ver catálogo
 
                         // 5. ✅ Secretario (Su panel exclusivo de recepción en vivo)
-                        .requestMatchers("/secretario/**").hasRole("SECRETARIO")
+                        .requestMatchers("/secretario/citas/**").hasAuthority("GESTION_CITAS")
+                        .requestMatchers("/secretario/pedidos/**").hasAuthority("GESTION_PEDIDOS")
+                        .requestMatchers("/secretario/recepcion/notas-venta/**").hasAuthority("GESTION_NOTAS_VENTA")
+                        .requestMatchers("/secretario/recepcion/**").hasAuthority("GESTION_RECEPCION")
+                        .requestMatchers("/secretario/cliente/**").hasAuthority("GESTION_CLIENTES")
+                        .requestMatchers("/secretario/dashboard").hasAnyRole("SECRETARIO", "ADMINISTRADOR")
 
                         // 6. ✅ Área del cliente web
                         .requestMatchers("/cliente/dashboard/**", "/cliente/perfil/**").hasRole("CLIENTE")
