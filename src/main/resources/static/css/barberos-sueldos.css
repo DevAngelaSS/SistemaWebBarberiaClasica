@@ -1,11 +1,20 @@
 :root {
-    --gold: #c9a84c;
-    --gold-dim: rgba(201, 168, 76, 0.12);
-    --border-gold: rgba(201, 168, 76, 0.25);
+    /* "gold" ahora es marrón; se mantienen los nombres para no tocar el HTML */
+    --gold: #8b5a2b;
+    --gold-dim: rgba(139, 90, 43, 0.12);
+    --border-gold: rgba(139, 90, 43, 0.28);
+
+    --brown-900: #3b2a20;
+    --brown-700: #5c4033;
+    --brown-100: #efe6df;
+    --page-bg: #f7f3ef;
+    --line: rgba(59, 42, 32, 0.10);
+    --muted: rgba(59, 42, 32, 0.55);
+    --green: #2e8b57;
 }
 
 .periodo-selector {
-    background: #141414;
+    background: #ffffff;
     border: 1px solid var(--border-gold);
     border-radius: 10px;
     padding: 16px 20px;
@@ -14,11 +23,12 @@
     align-items: center;
     gap: 12px;
     flex-wrap: wrap;
+    color: var(--brown-900);
 }
 
 .periodo-selector select {
-    background: #1e1e1e;
-    color: #fff;
+    background: #ffffff;
+    color: var(--brown-900);
     border: 1px solid var(--border-gold);
     border-radius: 6px;
     padding: 7px 12px;
@@ -28,15 +38,17 @@
 .periodo-selector select:focus {
     outline: none;
     border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold-dim);
 }
 
 /* Cards de barbero */
 .barbero-card {
-    background: #141414;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #ffffff;
+    border: 1px solid var(--line);
     border-radius: 14px;
     margin-bottom: 20px;
     overflow: hidden;
+    box-shadow: 0 4px 16px rgba(59, 42, 32, 0.06);
     transition: border-color 0.2s;
 }
 
@@ -45,7 +57,7 @@
 }
 
 .barbero-header {
-    background: #1a1a1a;
+    background: var(--brown-100);
     padding: 18px 22px;
     display: flex;
     align-items: center;
@@ -62,7 +74,7 @@
     border-radius: 50%;
     border: 2px solid var(--gold);
     object-fit: cover;
-    background: var(--gold-dim);
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,11 +86,11 @@
 .barbero-nombre {
     font-weight: 700;
     font-size: 1rem;
-    color: #fff;
+    color: var(--brown-900);
 }
 
 .barbero-esp {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--muted);
     font-size: 0.8rem;
 }
 
@@ -96,10 +108,11 @@
 .stat-value {
     font-weight: 700;
     font-size: 1.1rem;
+    color: var(--brown-900);
 }
 
 .stat-label {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--muted);
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -110,14 +123,14 @@
 }
 
 .stat-green {
-    color: #2ecc71;
+    color: var(--green);
 }
 
 /* Badge comisión */
 .badge-comision {
-    background: rgba(46, 204, 113, 0.12);
-    color: #2ecc71;
-    border: 1px solid rgba(46, 204, 113, 0.3);
+    background: rgba(46, 139, 87, 0.10);
+    color: #1f6f46;
+    border: 1px solid rgba(46, 139, 87, 0.3);
     border-radius: 20px;
     padding: 6px 16px;
     font-weight: 700;
@@ -141,23 +154,23 @@
 }
 
 .citas-detalle thead th {
-    background: #1e1e1e;
-    color: rgba(255, 255, 255, 0.4);
+    background: var(--page-bg);
+    color: var(--brown-700);
     text-transform: uppercase;
     font-size: 0.72rem;
     letter-spacing: 0.5px;
     padding: 10px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--line);
 }
 
 .citas-detalle tbody td {
     padding: 10px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    color: #f0ece0;
+    border-bottom: 1px solid var(--line);
+    color: var(--brown-900);
 }
 
 .citas-detalle tbody tr:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: #f3ece6;
 }
 
 .citas-detalle .td-precio {
@@ -166,7 +179,7 @@
 }
 
 .citas-detalle .td-comision {
-    color: #2ecc71;
+    color: var(--green);
     font-weight: 700;
 }
 
@@ -174,13 +187,13 @@
 .sin-citas {
     text-align: center;
     padding: 28px;
-    color: rgba(255, 255, 255, 0.25);
+    color: var(--muted);
     font-size: 0.85rem;
 }
 
 /* Totales generales */
 .resumen-total {
-    background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(201, 168, 76, 0.05));
+    background: linear-gradient(135deg, #ffffff, var(--brown-100));
     border: 1px solid var(--border-gold);
     border-radius: 12px;
     padding: 20px 24px;
@@ -202,7 +215,7 @@
 }
 
 .total-label {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--muted);
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -212,7 +225,7 @@
 /* Chevron */
 .chevron {
     transition: transform 0.3s;
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--muted);
 }
 
 .chevron.open {
@@ -220,8 +233,8 @@
 }
 
 .btn-gold-sm {
-    background: linear-gradient(135deg, var(--gold), #9a7a30);
-    color: #0a0a0a;
+    background: linear-gradient(135deg, #8b5a2b, #5c4033);
+    color: #ffffff;
     font-weight: 700;
     border: none;
     padding: 8px 20px;

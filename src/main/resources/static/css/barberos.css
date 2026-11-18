@@ -1,6 +1,17 @@
 /* ══════════════════════════════════════════════
    barberos.css — Estilos del módulo de barberos
+   Paleta: blanco y marrón
    ══════════════════════════════════════════════ */
+
+:root {
+    /* "naranja" ahora es marrón; se mantiene el nombre para no tocar el HTML */
+    --naranja: #8b5a2b;
+    --marron-oscuro: #3b2a20;
+    --marron-medio: #5c4033;
+    --crema: #efe6df;
+    --fondo-claro: #f7f3ef;
+    --linea: rgba(59, 42, 32, 0.12);
+}
 
 /* ── Foto en tabla ───────────────────────────── */
 .foto-barbero-tabla {
@@ -8,14 +19,14 @@
     height: 46px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--naranja, #e67e22);
+    border: 2px solid var(--naranja, #8b5a2b);
 }
 
 .foto-inicial {
     width: 46px;
     height: 46px;
     border-radius: 50%;
-    background: var(--naranja, #e67e22);
+    background: var(--naranja, #8b5a2b);
     color: #fff;
     font-size: 20px;
     font-weight: 700;
@@ -26,9 +37,9 @@
 
 /* ── Badge día libre ─────────────────────────── */
 .badge-dia {
-    background: rgba(255,255,255,0.08);
-    color: var(--naranja, #e67e22);
-    border: 1px solid var(--naranja, #e67e22);
+    background: var(--crema);
+    color: var(--naranja, #8b5a2b);
+    border: 1px solid var(--naranja, #8b5a2b);
     border-radius: 20px;
     padding: 2px 10px;
     font-size: 11px;
@@ -36,19 +47,20 @@
     letter-spacing: 0.5px;
 }
 
-/* ── Modal oscuro ────────────────────────────── */
+/* ── Modal (claro) ───────────────────────────── */
 .modal-oscuro {
-    background-color: #1e1e1e;
-    border: 1px solid rgba(255,255,255,0.08);
-    color: #f0f0f0;
+    background-color: #ffffff;
+    border: 1px solid var(--linea);
+    color: var(--marron-oscuro);
 }
 
 .modal-oscuro .modal-header {
-    background-color: #161616;
+    background-color: var(--crema);
+    color: var(--marron-oscuro);
 }
 
 .border-naranja {
-    border-bottom: 1px solid var(--naranja, #e67e22) !important;
+    border-bottom: 1px solid var(--naranja, #8b5a2b) !important;
 }
 
 /* ── Foto en modal ───────────────────────────── */
@@ -64,7 +76,7 @@
     height: 110px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--naranja, #e67e22);
+    border: 3px solid var(--naranja, #8b5a2b);
     transition: opacity 0.2s;
 }
 
@@ -76,9 +88,9 @@
     width: 110px;
     height: 110px;
     border-radius: 50%;
-    background: #2a2a2a;
-    border: 3px dashed var(--naranja, #e67e22);
-    color: var(--naranja, #e67e22);
+    background: var(--crema);
+    border: 3px dashed var(--naranja, #8b5a2b);
+    color: var(--naranja, #8b5a2b);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,43 +100,44 @@
 }
 
 .foto-placeholder-modal:hover {
-    background: #333;
+    background: #e4d6cb;
 }
 
-/* ── Inputs oscuros ──────────────────────────── */
+/* ── Inputs ──────────────────────────────────── */
 .form-control-dark,
 .form-select-dark {
-    background-color: #2a2a2a;
-    border: 1px solid rgba(255,255,255,0.12);
-    color: #f0f0f0;
+    background-color: #ffffff;
+    border: 1px solid rgba(59, 42, 32, 0.2);
+    color: var(--marron-oscuro);
     border-radius: 8px;
 }
 
 .form-control-dark::placeholder {
-    color: #666;
+    color: rgba(59, 42, 32, 0.4);
 }
 
 .form-control-dark:focus,
 .form-select-dark:focus {
-    background-color: #2a2a2a;
-    border-color: var(--naranja, #e67e22);
-    color: #f0f0f0;
-    box-shadow: 0 0 0 3px rgba(230,126,34,0.15);
+    background-color: #ffffff;
+    border-color: var(--naranja, #8b5a2b);
+    color: var(--marron-oscuro);
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.15);
 }
 
 .form-select-dark option {
-    background-color: #2a2a2a;
+    background-color: #ffffff;
+    color: var(--marron-oscuro);
 }
 
 .form-label-dark {
-    color: #aaa;
+    color: var(--marron-medio);
     font-size: 13px;
     margin-bottom: 4px;
 }
 
-/* ── Botón naranja ───────────────────────────── */
+/* ── Botones ─────────────────────────────────── */
 .btn-naranja {
-    background: var(--naranja, #e67e22);
+    background: var(--naranja, #8b5a2b);
     color: #fff;
     border: none;
     font-weight: 600;
@@ -138,58 +151,59 @@
 }
 
 .btn-outline-naranja {
-    color: var(--naranja, #e67e22);
-    border-color: var(--naranja, #e67e22);
+    color: var(--naranja, #8b5a2b);
+    border-color: var(--naranja, #8b5a2b);
     background: transparent;
     border-radius: 6px;
 }
 
 .btn-outline-naranja:hover {
-    background: var(--naranja, #e67e22);
+    background: var(--naranja, #8b5a2b);
     color: #fff;
 }
 
-/* ── Tabla oscura ────────────────────────────── */
+/* ── Tabla ───────────────────────────────────── */
 .table {
-    color: var(--text-primary) !important;
+    color: var(--text-primary, var(--marron-oscuro)) !important;
     --bs-table-bg: transparent;
-    --bs-table-color: var(--text-primary); /* Fuerza el color claro en toda la tabla */
-    --bs-table-hover-color: var(--text-primary); /* Mantiene el color claro al pasar el mouse */
+    --bs-table-color: var(--text-primary, var(--marron-oscuro));
+    --bs-table-hover-color: var(--text-primary, var(--marron-oscuro));
 }
 
 .table thead th {
-    background-color: #1e1e1e !important;
-    color: var(--text-muted) !important; /* Agregamos !important para asegurar que sobreescriba Bootstrap */
-    border-color: var(--border) !important;
+    background-color: var(--crema) !important;
+    color: var(--marron-medio) !important;
+    border-color: var(--linea) !important;
     font-size: 0.75rem;
     letter-spacing: 0.8px;
     font-weight: 600;
 }
 
 .table tbody tr {
-    border-color: var(--border) !important;
+    border-color: var(--linea) !important;
     transition: background-color 0.15s;
 }
 
 .table tbody tr:hover {
-    background-color: var(--bg-hover) !important;
+    background-color: #f3ece6 !important;
 }
 
-.table tbody td { 
-    border-color: var(--border) !important; 
-    color: var(--text-primary) !important; /* Esta es la línea mágica que hace aparecer el texto */
+.table tbody td {
+    border-color: var(--linea) !important;
+    color: var(--text-primary, var(--marron-oscuro)) !important;
     vertical-align: middle;
 }
 
-.table-light { 
-    background-color: #1e1e1e !important; 
-    color: var(--text-muted) !important;
-    --bs-table-color: var(--text-muted);
+.table-light {
+    background-color: var(--crema) !important;
+    color: var(--marron-medio) !important;
+    --bs-table-color: var(--marron-medio);
 }
 
 .card-oscuro {
-    background: #1e1e1e;
+    background: #ffffff;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 1px solid var(--linea);
+    box-shadow: 0 4px 16px rgba(59, 42, 32, 0.06);
     overflow: hidden;
 }

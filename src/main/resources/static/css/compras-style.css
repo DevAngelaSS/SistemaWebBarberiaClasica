@@ -1,44 +1,46 @@
-/* Estilos personalizados para el Módulo de Compras Premium */
+/* Estilos personalizados para el Módulo de Compras Premium
+   Paleta: blanco y marrón */
+
 .bg-card-dark {
-    background-color: #242424 !important;
+    background-color: #ffffff !important;
 }
 
 .bg-dark-custom {
-    background-color: #1e1e1e !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+    background-color: #efe6df !important;
+    border-bottom: 1px solid rgba(59, 42, 32, 0.12) !important;
 }
 
 .form-label-custom {
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(59, 42, 32, 0.65);
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    text-uppercase: true;
+    text-transform: uppercase;
     display: block;
     margin-bottom: 6px;
 }
 
 .custom-input {
-    background-color: #1e1e1e !important;
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
-    color: #f0f0f0 !important;
+    background-color: #ffffff !important;
+    border: 1px solid rgba(59, 42, 32, 0.2) !important;
+    color: #3b2a20 !important;
     border-radius: 8px;
     padding: 10px 14px;
 }
 
 .custom-input:focus {
-    border-color: #ff6b2b !important;
-    box-shadow: 0 0 0 3px rgba(255, 107, 43, 0.12) !important;
+    border-color: #8b5a2b !important;
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.15) !important;
 }
 
 .bg-dark-input {
-    background-color: #141414 !important;
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    background-color: #f7f3ef !important;
+    border: 1px solid rgba(59, 42, 32, 0.12) !important;
 }
 
 .card-inner-setup {
-    background-color: #191919;
-    border-left: 4px solid #ff6b2b;
+    background-color: #f7f3ef;
+    border-left: 4px solid #8b5a2b;
 }
 
 /* Reemplazamos el punto por una 'd' de decimal */
@@ -54,9 +56,9 @@
 
 /* Botones rectangulares selectores */
 .btn-selector-custom {
-    background-color: #1e1e1e !important;
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
-    color: rgba(255, 255, 255, 0.6) !important;
+    background-color: #ffffff !important;
+    border: 1px solid rgba(59, 42, 32, 0.2) !important;
+    color: rgba(59, 42, 32, 0.7) !important;
     font-weight: 600;
     font-size: 0.85rem;
     transition: all 0.2s ease-in-out;
@@ -64,21 +66,22 @@
 }
 
 .btn-selector-custom:hover {
-    border-color: rgba(255, 107, 43, 0.5) !important;
-    color: #fff !important;
+    border-color: rgba(139, 90, 43, 0.6) !important;
+    color: #3b2a20 !important;
+    background-color: #f3ece6 !important;
 }
 
-/* Estado seleccionado (Naranja Premium) */
+/* Estado seleccionado (marrón) */
 .btn-selector-custom.active {
-    background-color: rgba(255, 107, 43, 0.15) !important;
-    border-color: #ff6b2b !important;
-    color: #ff6b2b !important;
-    box-shadow: 0 0 0 3px rgba(255, 107, 43, 0.1) !important;
+    background-color: rgba(139, 90, 43, 0.12) !important;
+    border-color: #8b5a2b !important;
+    color: #8b5a2b !important;
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.12) !important;
 }
 
 .btn-pag {
-    background: #212126;
-    color: #ffffff;
+    background: #efe6df;
+    color: #3b2a20;
     border: 0;
     border-radius: 4px;
     padding: 5px 14px;
@@ -90,25 +93,25 @@
 }
 
 .btn-pag:hover {
-    background: #ff6b2b;
+    background: #8b5a2b;
     color: #fff;
 }
 
 .btn-pag.active {
-    background: #ff6b2b;
+    background: #8b5a2b;
     color: #fff;
     font-weight: bold;
 }
 
 .btn-pag.disabled {
-    opacity: 0.3;
+    opacity: 0.4;
     pointer-events: none;
 }
 
 .select-size {
-    background: #212126;
-    color: #fff;
-    border: 1px solid #2d2d35;
+    background: #ffffff;
+    color: #3b2a20;
+    border: 1px solid rgba(59, 42, 32, 0.2);
     border-radius: 6px;
     padding: 4px 8px;
     font-size: 0.85rem;
@@ -116,14 +119,14 @@
 
 .select-size:focus {
     outline: none;
-    border-color: #ff6b2b;
+    border-color: #8b5a2b;
 }
 
 /* Badge compra directa */
 .badge-directa {
-    background: rgba(255, 107, 43, 0.15);
-    color: #ff6b2b;
-    border: 1px solid rgba(255, 107, 43, 0.3);
+    background: rgba(139, 90, 43, 0.12);
+    color: #8b5a2b;
+    border: 1px solid rgba(139, 90, 43, 0.3);
     border-radius: 6px;
     padding: 2px 8px;
     font-size: 0.72rem;
