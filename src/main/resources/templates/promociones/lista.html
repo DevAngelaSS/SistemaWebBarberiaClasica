@@ -7,35 +7,39 @@
     <link rel="stylesheet" th:href="@{/css/promociones.css}">
 </head>
 
-<body class="bg-dark text-light">
+<body>
 
     <div th:replace="~{layout/sidebar :: sidebar_menu('promociones')}"></div>
 
-    <div class="main-content" style="margin-left: 260px; padding: 30px;">
+    <div class="main-content">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h2 style="font-family: serif; color: #c9a84c; font-weight: 700;" class="m-0">CONFIGURACIÓN DE
-                    PROMOCIONES</h2>
-                <p class="text-white-50 small m-0">Define reglas de descuento automáticas aplicadas en caja y catálogo
+                <h2 class="fw-bold m-0" style="color:var(--text-primary);">
+                    <i class="fa-solid fa-tag me-2" style="color:var(--accent);"></i>Configuración de Promociones
+                </h2>
+                <p class="text-muted small m-0">Define reglas de descuento automáticas aplicadas en caja y catálogo
                     online.</p>
             </div>
         </div>
 
-        <div th:if="${exito}" class="alert alert-success bg-opacity-25 text-success border-success" th:text="${exito}">
-        </div>
-        <div th:if="${error}" class="alert alert-danger bg-opacity-25 text-danger border-danger" th:text="${error}">
-        </div>
+        <div th:if="${exito}" class="alert alert-success" th:text="${exito}"></div>
+        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
 
         <div class="row g-4">
+            <!-- ══ FORMULARIO ══ -->
             <div class="col-lg-4">
                 <div class="card-admin p-4">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                     <h5 class="fw-bold mb-3 text-uppercase" style="color: #c9a84c;" id="formTitle">Nueva Promoción</h5>
 =======
                     <h5 class="fw-bold mb-3 text-uppercase" style="color:var(--accent);" id="formTitle">Nueva Promoción
                     </h5>
 >>>>>>> Stashed changes
+=======
+                    <h5 class="fw-bold mb-3 text-uppercase" style="color:var(--accent);" id="formTitle">Nueva Promoción</h5>
+>>>>>>> main
 
                     <form th:action="@{/admin/promociones/guardar}" method="post" id="promoForm">
                         <input type="hidden" name="id" id="promoId">
@@ -96,8 +100,12 @@
                                 <div class="input-group">
                                     <input type="text" id="promoProductoTexto" class="form-control input-dark" readonly
                                         placeholder="Ningún producto seleccionado...">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                                     <button class="btn btn-warning text-dark fw-bold" type="button"
+=======
+                                    <button class="btn btn-primary fw-bold" type="button"
+>>>>>>> main
                                         data-bs-toggle="modal" data-bs-target="#modalBuscarProducto">
 =======
                                     <button class="btn btn-primary fw-bold" type="button" data-bs-toggle="modal"
@@ -134,26 +142,27 @@
                                 (Fidelización)</label>
                             <input type="number" name="minimoVisitasRequeridas" id="promoVisitas"
                                 class="form-control input-dark" min="0" value="0">
-                            <small class="text-white-50 text-opacity-50" style="font-size:0.75rem;">Deja en 0 para que
+                            <small class="text-muted" style="font-size:0.75rem;">Deja en 0 para que
                                 aplique a todos.</small>
                         </div>
 
                         <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-warning flex-grow-1 text-dark fw-bold">Guardar
-                                Configuration</button>
-                            <button type="button" class="btn btn-outline-secondary text-white"
+                            <button type="submit" class="btn btn-primary flex-grow-1 fw-bold">Guardar
+                                Configuración</button>
+                            <button type="button" class="btn btn-secondary"
                                 onclick="limpiarFormulario()">Cancelar</button>
                         </div>
                     </form>
                 </div>
             </div>
 
+            <!-- ══ TABLA ══ -->
             <div class="col-lg-8">
                 <div class="card-admin p-4 h-100">
-                    <h5 class="fw-bold mb-3 text-uppercase" style="color: #c9a84c;">Promociones Registradas</h5>
+                    <h5 class="fw-bold mb-3 text-uppercase" style="color:var(--accent);">Promociones Registradas</h5>
 
                     <div class="table-responsive">
-                        <table class="table table-dark table-striped table-dark-custom align-middle m-0">
+                        <table class="table table-hover align-middle m-0">
                             <thead>
                                 <tr>
                                     <th>Promo / Motivo</th>
@@ -171,11 +180,12 @@
                                 </tr>
                                 <tr th:each="p : ${promociones}">
                                     <td>
-                                        <strong th:text="${p.nombre}" class="text-warning"></strong>
-                                        <small class="d-block text-white-50 text-truncate" style="max-width:200px;"
+                                        <strong th:text="${p.nombre}" style="color:var(--accent);"></strong>
+                                        <small class="d-block text-muted text-truncate" style="max-width:200px;"
                                             th:text="${p.descripcion}"></small>
                                     </td>
                                     <td>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                                         <span class="badge bg-secondary" th:text="${p.tipoPromocion}"></span>
                                         <small class="d-block text-white-50" th:if="${p.servicio != null}"
@@ -184,28 +194,36 @@
                                             th:text="${p.tipoPromocion}"></span>
                                         <small class="d-block text-muted" th:if="${p.servicio != null}"
 >>>>>>> Stashed changes
+=======
+                                        <span class="badge bg-light border" style="color:var(--brown-700) !important;" th:text="${p.tipoPromocion}"></span>
+                                        <small class="d-block text-muted" th:if="${p.servicio != null}"
+>>>>>>> main
                                             th:text="${p.servicio.nombre}"></small>
-                                        <small class="d-block text-white-50" th:if="${p.producto != null}"
+                                        <small class="d-block text-muted" th:if="${p.producto != null}"
                                             th:text="${p.producto.nombre}"></small>
-                                        <small class="d-block text-white-50" th:if="${p.categoria != null}"
+                                        <small class="d-block text-muted" th:if="${p.categoria != null}"
                                             th:text="'Categoría: ' + ${p.categoria.nombre}"></small>
                                     </td>
-                                    <td th:text="${p.porcentajeDescuento} + '%'"></td>
+                                    <td class="fw-bold" th:text="${p.porcentajeDescuento} + '%'"></td>
                                     <td>
-                                        <small class="d-block text-white-50"
+                                        <small class="d-block text-muted"
                                             th:text="'Inicia: ' + ${#temporals.format(p.fechaInicio, 'dd/MM/yyyy HH:mm')}"></small>
-                                        <small class="d-block text-white-50"
+                                        <small class="d-block text-muted"
                                             th:text="'Fin: ' + ${#temporals.format(p.fechaFin, 'dd/MM/yyyy HH:mm')}"></small>
                                     </td>
                                     <td class="text-center">
 <<<<<<< Updated upstream
                                         <span th:if="${p.isVigente()}"
+<<<<<<< HEAD
                                             class="badge bg-success text-dark fw-bold">VIGENTE</span>
 =======
                                         <span th:if="${p.isVigente()}" class="badge badge-active fw-bold">VIGENTE</span>
 >>>>>>> Stashed changes
+=======
+                                            class="badge badge-active fw-bold">VIGENTE</span>
+>>>>>>> main
                                         <span th:unless="${p.isVigente()}"
-                                            class="badge bg-danger text-white">PAUSADA/EXPIRADA</span>
+                                            class="badge badge-inactive">PAUSADA/EXPIRADA</span>
                                     </td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm">
@@ -241,18 +259,18 @@
         </div>
     </div>
 
+    <!-- ══ MODAL ELIMINAR ══ -->
     <div class="modal fade" id="modalConfirmarEliminar" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content text-light"
-                style="background: #141414; border: 1px solid rgba(231, 76, 60, 0.3);">
+            <div class="modal-content">
                 <div class="modal-body p-4 text-center">
                     <i class="fa-solid fa-triangle-exclamation text-danger fs-1 mb-3"></i>
                     <h5 class="fw-bold mb-2">¿Eliminar Promoción?</h5>
-                    <p class="text-white-50 small mb-4">Esta acción es irreversible y eliminará la regla de descuento
+                    <p class="text-muted small mb-4">Esta acción es irreversible y eliminará la regla de descuento
                         permanentemente.</p>
 
                     <div class="d-flex gap-2 justify-content-center">
-                        <button type="button" class="btn btn-sm btn-outline-secondary text-white px-3"
+                        <button type="button" class="btn btn-sm btn-secondary px-3"
                             data-bs-dismiss="modal">Cancelar</button>
                         <a id="btnConfirmarEliminarHref" href="#"
                             class="btn btn-sm btn-danger px-4 fw-bold">Eliminar</a>
@@ -262,17 +280,22 @@
         </div>
     </div>
 
+    <!-- ══ MODAL BUSCAR PRODUCTO ══ -->
     <div class="modal fade" id="modalBuscarProducto" tabindex="-1" aria-labelledby="modalBuscarProductoLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-light" style="background: #111; border: 1px solid rgba(201, 168, 76, 0.25);">
+            <div class="modal-content">
                 <div class="modal-header border-0 pb-0">
                     <h6 class="modal-title fw-bold text-uppercase" id="modalBuscarProductoLabel"
-                        style="color: #c9a84c;">
+                        style="color:var(--accent);">
                         <i class="fa-solid fa-boxes-stacked me-2"></i>Seleccionar Producto
                     </h6>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                     <button type="button" class="btn-close btn-close-white" data-bs-target="#promoForm"
+=======
+                    <button type="button" class="btn-close" data-bs-target="#promoForm"
+>>>>>>> main
                         data-bs-toggle="modal" data-bs-dismiss="modal"></button>
 =======
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -289,18 +312,24 @@
                     <div class="list-group option-product-list" id="listaProductosModal"
                         style="max-height: 300px; overflow-y: auto;">
                         <button th:each="p : ${productos}" type="button"
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                             class="list-group-item list-group-item-action item-prod-modal text-start text-light"
                             style="background: #1a1a1f; border: 1px solid rgba(255,255,255,0.04); margin-bottom: 4px; border-radius: 6px;"
+=======
+                            class="list-group-item list-group-item-action item-prod-modal text-start"
+                            style="margin-bottom: 4px; border-radius: 6px;"
+>>>>>>> main
                             th:data-id="${p.id}" th:data-nombre="${p.nombre}" th:data-precio="${p.precioVenta}"
                             th:data-stock="${p.stock}">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <span class="fw-bold d-block text-warning" th:text="${p.nombre}"></span>
-                                    <small class="text-white-50"
+                                    <span class="fw-bold d-block" style="color:var(--accent);" th:text="${p.nombre}"></span>
+                                    <small class="text-muted"
                                         th:text="'Precio: S/ ' + ${#numbers.formatDecimal(p.precioVenta, 1, 2)}"></small>
                                 </div>
                                 <span
+<<<<<<< HEAD
                                     th:class="${p.stock > 0} ? 'badge bg-opacity-25 text-success bg-success' : 'badge bg-opacity-25 text-danger bg-danger'"
 =======
                             class="list-group-item list-group-item-action item-prod-modal text-start"
@@ -315,6 +344,9 @@
                                 </div>
                                 <span th:class="${p.stock > 0} ? 'badge badge-active' : 'badge badge-inactive'"
 >>>>>>> Stashed changes
+=======
+                                    th:class="${p.stock > 0} ? 'badge badge-active' : 'badge badge-inactive'"
+>>>>>>> main
                                     th:text="'Stock: ' + ${p.stock}" style="font-size: 0.72rem;">
                                 </span>
                             </div>
@@ -322,13 +354,12 @@
                     </div>
                 </div>
                 <div class="modal-footer border-0 pt-0">
-                    <button type="button" class="btn btn-sm btn-outline-secondary text-white rounded-pill px-3"
+                    <button type="button" class="btn btn-sm btn-secondary rounded-pill px-3"
                         data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
-
 
     <script th:src="@{/js/promociones.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

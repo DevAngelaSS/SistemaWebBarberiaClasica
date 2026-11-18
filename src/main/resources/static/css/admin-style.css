@@ -546,3 +546,161 @@ input:checked+.slider:before {
     opacity: 0.5;
     cursor: not-allowed;
 }
+/* ══════════════════════════════════════════════════
+   OVERRIDES GLOBALES — tema claro unificado (como "Usuarios")
+   ══════════════════════════════════════════════════ */
+
+/* Texto blanco → marrón oscuro (sin tocar botones, badges ni fondos de color) */
+.main-content .text-white:not(.btn):not(.badge):not(.bg-primary):not(.bg-success):not(.bg-danger):not(.bg-gradient-green):not(.bg-gradient-blue):not(.bg-gradient-purple),
+.main-content .text-light:not(.btn):not(.badge) {
+    color: var(--text-primary) !important;
+}
+
+.main-content .text-white-50 {
+    color: var(--text-muted) !important;
+}
+
+/* Fondos oscuros → blanco */
+.main-content .bg-dark:not(.btn):not(.badge),
+.main-content .bg-dark-table,
+.main-content .bg-card-dark,
+.main-content .bg-dark-input,
+.main-content .card.bg-dark {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+}
+
+.main-content .badge.bg-dark {
+    background-color: var(--brown-100) !important;
+    color: var(--brown-800) !important;
+    border: 1px solid var(--border) !important;
+}
+
+/* Tablas oscuras → tabla clara */
+.main-content .table-dark,
+.main-content .table-dark-custom {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--text-primary);
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+}
+
+.main-content .table-dark th,
+.main-content .table-dark-custom th,
+.main-content thead.table-dark th,
+.main-content thead.table-dark tr {
+    background-color: var(--brown-100) !important;
+    color: var(--brown-700) !important;
+}
+
+.main-content .table-dark-custom tbody tr {
+    background-color: var(--bg-card) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.main-content .table-dark-custom tbody tr:hover {
+    background-color: var(--bg-hover) !important;
+}
+
+/* Bordes oscuros */
+.main-content .border-secondary,
+.main-content .border-dark {
+    border-color: var(--border) !important;
+}
+
+/* Colores en línea de otros temas (naranja / dorado) → acento marrón */
+.main-content i[style*="ff6b2b"],
+.main-content [style*="color:#c9a84c"],
+.main-content [style*="color: #c9a84c"] {
+    color: var(--accent) !important;
+}
+
+/* Botón naranja → marrón */
+.btn-naranja {
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: #fff !important;
+}
+
+.btn-naranja:hover {
+    background-color: var(--accent-hover) !important;
+}
+
+/* Alertas con fondo oscuro */
+.alert.bg-dark {
+    background-color: rgba(46, 139, 87, 0.1) !important;
+}
+
+.alert-danger.bg-dark {
+    background-color: rgba(192, 57, 43, 0.1) !important;
+}
+
+.alert .btn-close-white {
+    filter: none;
+}
+
+/* Buscador, paginación y selector (claros) */
+.search-box-container {
+    background-color: #ffffff !important;
+    border: 1px solid rgba(59, 42, 32, 0.2) !important;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 40px;
+}
+
+.search-icon {
+    color: var(--brown-600) !important;
+}
+
+.search-input {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.btn-pag {
+    background: var(--brown-100);
+    color: var(--brown-800);
+    border: 0;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+}
+
+.btn-pag:hover,
+.btn-pag.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-pag.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.select-size {
+    background: #fff;
+    color: var(--text-primary);
+    border: 1px solid rgba(59, 42, 32, 0.2);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.85rem;
+}
+
+.select-size:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Modales con estilo oscuro en línea → claros */
+.modal-content [style*="f0ece0"],
+.modal-content .text-white,
+.modal-content .text-light {
+    color: var(--text-primary) !important;
+}
+
+.modal-content .btn-close-white {
+    filter: none;
+}

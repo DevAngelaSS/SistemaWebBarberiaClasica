@@ -1,6 +1,10 @@
 let modalPagoInstance;
 
-// ── Ver comprobante en modal secundario ───────────────────────────────────
+// Ruta base según el panel donde se está (admin o secretario)
+const BASE_CITAS = window.location.pathname.startsWith('/admin')
+    ? '/admin/citas'
+    : '/secretario/citas';
+
 function verComprobante(src) {
     const imgGrande = document.getElementById('comprobanteGrande');
     if (imgGrande) {
@@ -9,7 +13,6 @@ function verComprobante(src) {
     }
 }
 
-// ── Obtener Token CSRF de Spring Security ──────────────────────────────────
 function getCsrf() {
     return document.querySelector('meta[name="_csrf"]')?.content || '';
 }
@@ -17,21 +20,21 @@ function getCsrf() {
 function abrirModalConfirmacion(button) {
     const id = button.getAttribute('data-id');
     const totalServicio = parseFloat(button.getAttribute('data-total')) || 0;
-    
+
     const fila = document.getElementById('fila-' + id);
     const imgElement = fila ? fila.querySelector('.comprobante-thumb') : null;
 
     document.getElementById('modalCitaId').value = id;
-    
+
     if (document.getElementById('txtTotalServicio')) {
         document.getElementById('txtTotalServicio').innerText = totalServicio.toFixed(2);
     }
-    
+
     const txtCodigo = document.getElementById('txtCodigoDetectado');
     if (txtCodigo) txtCodigo.innerText = "Escaneando...";
 
-    document.getElementById('formMontoYape').value = ""; 
-    
+    document.getElementById('formMontoYape').value = "";
+
     calcularCuadre();
 
     modalPagoInstance = new bootstrap.Modal(document.getElementById('modalConfirmarPago'));
@@ -43,12 +46,12 @@ function abrirModalConfirmacion(button) {
         if (txtCodigo) txtCodigo.innerText = "NO_DETECTADO";
     }
 }
+
 function ejecutarOcrInteligente(imgUrl) {
     if (typeof Tesseract === 'undefined') return;
 
     Tesseract.recognize(imgUrl, 'eng')
         .then(({ data: { text } }) => {
-            // Extrae el código de 8 dígitos continuo de Yape
             const matchCodigo = text.match(/\b\d{8}\b/);
             let codigoDetectado = matchCodigo ? matchCodigo[0] : "NO_DETECTADO";
 
@@ -66,7 +69,6 @@ function ejecutarOcrInteligente(imgUrl) {
         });
 }
 
-// ── Calculadora de Cuadre y Alertas de Seguridad ───────────────────────────
 function calcularCuadre() {
     const txtTotal = document.getElementById('txtTotalServicio');
     if (!txtTotal) return;
@@ -76,27 +78,26 @@ function calcularCuadre() {
 
     if (yape < 0) { yape = 0; document.getElementById('formMontoYape').value = 0; }
 
-    const saldo = total - yape; // El saldo es simplemente Total menos Yape 💸
+    const saldo = total - yape;
     const box = document.getElementById('boxStatusSaldo');
 
     if (box) {
         if (saldo === 0) {
-            box.style.background = "rgba(46,204,113,0.15)";
-            box.style.color = "#2ecc71";
+            box.style.background = "rgba(46,139,87,0.12)";
+            box.style.color = "#1f6f46";
             box.innerHTML = '<h6 class="m-0 font-monospace">✨ ¡SERVICIO CANCELADO COMPLETAMENTE! S/ 0.00</h6>';
         } else if (saldo < 0) {
-            box.style.background = "rgba(231,76,60,0.15)";
-            box.style.color = "#e74c3c";
-            box.innerHTML = '<h6>⚠️ ERROR: El monto supera el costo del servicio</h6>';
+            box.style.background = "rgba(192,57,43,0.12)";
+            box.style.color = "#a52f23";
+            box.innerHTML = '<h6 class="m-0">⚠️ ERROR: El monto supera el costo del servicio</h6>';
         } else {
-            box.style.background = "rgba(201,168,76,0.15)";
-            box.style.color = "#c9a84c";
-            box.innerHTML = `<h6 class="m-0 font-monospace">Saldo Restante para cobrar en Silla: S/ ${saldo.toFixed(2)}</h6>`;
+            box.style.background = "rgba(139,90,43,0.12)";
+            box.style.color = "#6f4420";
+            box.innerHTML = `<h6 class="m-0 font-monospace">Saldo restante para cobrar en silla: S/ ${saldo.toFixed(2)}</h6>`;
         }
     }
 }
 
-// ── Envío AJAX con Popups de Confirmación Contextuales ─────────────────────
 async function enviarConfirmacionHibrida() {
     const id = document.getElementById('modalCitaId').value;
     const total = parseFloat(document.getElementById('txtTotalServicio').innerText) || 0;
@@ -104,7 +105,6 @@ async function enviarConfirmacionHibrida() {
     const efectivo = 0;
     const codigo = document.getElementById('txtCodigoDetectado').innerText;
 
-    // Guardrails de validación rápida
     if (yape < 0) {
         alert("El monto no puede ser negativo.");
         return;
@@ -116,35 +116,29 @@ async function enviarConfirmacionHibrida() {
 
     const saldo = total - yape;
 
-    // 1. Construir el mensaje contextual según el saldo
     const mensajeTexto = saldo === 0
         ? `El servicio quedará marcado como TOTALMENTE PAGADO (Saldo: S/ 0.00).`
         : `Quedará un saldo pendiente por cobrar en la barbería de S/ ${saldo.toFixed(2)}.`;
 
-    // 2. Inyectar el texto en el modal premium
     document.getElementById('txtMensajeSaldoPremium').innerText = mensajeTexto;
 
-    // 3. Levantar el modal de confirmación premium
     const modalConfirmInstance = new bootstrap.Modal(document.getElementById('modalConfirmarSaldoPremium'));
     modalConfirmInstance.show();
 
-    // 4. Asignar la acción de ejecución real al botón "Aceptar" del nuevo modal
     document.getElementById('btnAceptarSaldoPremium').onclick = async function () {
-        modalConfirmInstance.hide(); // Ocultamos el modal de confirmación
+        modalConfirmInstance.hide();
 
         try {
-            const res = await fetch(`/secretario/citas/${id}/aceptar?montoYape=${yape}&montoEfectivo=${efectivo}&codigoYape=${codigo}`, {
+            const url = `${BASE_CITAS}/${id}/aceptar?montoYape=${yape}&montoEfectivo=${efectivo}&codigoYape=${encodeURIComponent(codigo)}`;
+            const res = await fetch(url, {
                 method: 'POST',
                 headers: { 'X-CSRF-TOKEN': getCsrf() }
             });
 
             if (res.ok) {
-                // Ocultamos el modal principal de auditoría
                 if (modalPagoInstance) modalPagoInstance.hide();
-
                 const fila = document.getElementById('fila-' + id);
                 if (fila) fila.remove();
-
                 mostrarToast('ok', 'Reserva verificada con éxito.');
             } else {
                 mostrarToast('err', 'Error al procesar el abono en el servidor.');
@@ -155,27 +149,27 @@ async function enviarConfirmacionHibrida() {
     };
 }
 
-// ── Acción para Cancelar/Rechazar Reservas ────────────────────────────────
 async function accionCita(id, accion) {
-    if (accion === 'aceptar') return; // Se gestiona en el modal
+    if (accion === 'aceptar') return;
     if (!confirm('¿Seguro que deseas cancelar esta cita?')) return;
 
     try {
-        const res = await fetch(`/secretario/citas/${id}/${accion}`, {
+        const res = await fetch(`${BASE_CITAS}/${id}/${accion}`, {
             method: 'POST',
             headers: { 'X-CSRF-TOKEN': getCsrf() }
         });
         if (res.ok) {
             const fila = document.getElementById('fila-' + id);
             if (fila) fila.remove();
-            mostrarToast('ok', '❌ Cita cancelada.');
+            mostrarToast('ok', 'Cita cancelada.');
+        } else {
+            mostrarToast('err', 'No se pudo cancelar la cita.');
         }
     } catch (e) {
         mostrarToast('err', 'Error de conexión.');
     }
 }
 
-// ── Mostrar Notificaciones Flotantes ──────────────────────────────────────
 function mostrarToast(tipo, texto) {
     const box = document.getElementById('toastBox');
     if (box) {

@@ -8,6 +8,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+/**
+ * Mapeo de entidad y estructura de persistencia con Spring Data JPA.
+ * Verificación de relaciones y pruebas de persistencia en la base de datos.
+ */
 @Entity
 @Table(name = "citas")
 @Data
