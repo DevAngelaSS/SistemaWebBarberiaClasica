@@ -24,7 +24,7 @@
 
             <div class="row g-4">
                 <div th:each="p : ${perfiles}" class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-lg" style="background-color: #212529; border-radius: 16px;">
+                    <div class="card h-100 shadow-lg role-card">
                         <div class="card-body d-flex flex-column p-4">
 
                             <div class="mb-3">
@@ -32,18 +32,18 @@
                                     style="background-color: #ff6b35; color: #ffffff; font-size: 0.7rem; letter-spacing: 0.5px;">
                                     Rol del Sistema
                                 </span>
-                                <h3 class="fw-bold text-white m-0 mt-1" style="font-size: 1.6rem;"
-                                    th:text="${p.nombrePerfil}"></h3>
+                                <h3 class="fw-bold m-0 mt-1" style="font-size: 1.6rem; color: #3B2A22;"
+                                    th:text="${p.nombrePerfil}">
+                                </h3>
                             </div>
 
                             <div class="mb-4 flex-grow-1">
                                 <div th:if="${not #lists.isEmpty(p.permisos)}" class="d-flex flex-wrap gap-2 pt-2">
                                     <span th:each="perm : ${p.permisos}" th:text="${perm.descripcion}"
-                                        class="badge fw-medium text-wrap text-start"
-                                        style="background-color: #2c3034; color: #dee2e6; border: 1px solid #3d4246; padding: 8px 12px; font-size: 0.8rem; border-radius: 8px; line-height: 1.4;">
+                                        class="badge fw-medium text-wrap text-start permission-badge">
                                     </span>
                                 </div>
-                                <div th:if="${#lists.isEmpty(p.permisos)}" class="small pt-2" style="color:#adb5bd;">
+                                <div th:if="${#lists.isEmpty(p.permisos)}" class="small pt-2" style="color: #927D6E;">
                                     <i class="fa-solid fa-circle-info me-1"></i> Sin permisos asignados.
                                 </div>
                             </div>
