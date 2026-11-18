@@ -1,0 +1,209 @@
+/* ══════════════════════════════════════════════
+   barberos.css — Estilos del módulo de barberos
+   Paleta: blanco y marrón
+   ══════════════════════════════════════════════ */
+
+:root {
+    /* "naranja" ahora es marrón; se mantiene el nombre para no tocar el HTML */
+    --naranja: #8b5a2b;
+    --marron-oscuro: #3b2a20;
+    --marron-medio: #5c4033;
+    --crema: #efe6df;
+    --fondo-claro: #f7f3ef;
+    --linea: rgba(59, 42, 32, 0.12);
+}
+
+/* ── Foto en tabla ───────────────────────────── */
+.foto-barbero-tabla {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--naranja, #8b5a2b);
+}
+
+.foto-inicial {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--naranja, #8b5a2b);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Badge día libre ─────────────────────────── */
+.badge-dia {
+    background: var(--crema);
+    color: var(--naranja, #8b5a2b);
+    border: 1px solid var(--naranja, #8b5a2b);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ── Modal (claro) ───────────────────────────── */
+.modal-oscuro {
+    background-color: #ffffff;
+    border: 1px solid var(--linea);
+    color: var(--marron-oscuro);
+}
+
+.modal-oscuro .modal-header {
+    background-color: var(--crema);
+    color: var(--marron-oscuro);
+}
+
+.border-naranja {
+    border-bottom: 1px solid var(--naranja, #8b5a2b) !important;
+}
+
+/* ── Foto en modal ───────────────────────────── */
+.foto-preview-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.foto-preview-modal {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--naranja, #8b5a2b);
+    transition: opacity 0.2s;
+}
+
+.foto-preview-modal:hover {
+    opacity: 0.8;
+}
+
+.foto-placeholder-modal {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--crema);
+    border: 3px dashed var(--naranja, #8b5a2b);
+    color: var(--naranja, #8b5a2b);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.foto-placeholder-modal:hover {
+    background: #e4d6cb;
+}
+
+/* ── Inputs ──────────────────────────────────── */
+.form-control-dark,
+.form-select-dark {
+    background-color: #ffffff;
+    border: 1px solid rgba(59, 42, 32, 0.2);
+    color: var(--marron-oscuro);
+    border-radius: 8px;
+}
+
+.form-control-dark::placeholder {
+    color: rgba(59, 42, 32, 0.4);
+}
+
+.form-control-dark:focus,
+.form-select-dark:focus {
+    background-color: #ffffff;
+    border-color: var(--naranja, #8b5a2b);
+    color: var(--marron-oscuro);
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.15);
+}
+
+.form-select-dark option {
+    background-color: #ffffff;
+    color: var(--marron-oscuro);
+}
+
+.form-label-dark {
+    color: var(--marron-medio);
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+/* ── Botones ─────────────────────────────────── */
+.btn-naranja {
+    background: var(--naranja, #8b5a2b);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: opacity 0.2s;
+}
+
+.btn-naranja:hover {
+    opacity: 0.88;
+    color: #fff;
+}
+
+.btn-outline-naranja {
+    color: var(--naranja, #8b5a2b);
+    border-color: var(--naranja, #8b5a2b);
+    background: transparent;
+    border-radius: 6px;
+}
+
+.btn-outline-naranja:hover {
+    background: var(--naranja, #8b5a2b);
+    color: #fff;
+}
+
+/* ── Tabla ───────────────────────────────────── */
+.table {
+    color: var(--text-primary, var(--marron-oscuro)) !important;
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--text-primary, var(--marron-oscuro));
+    --bs-table-hover-color: var(--text-primary, var(--marron-oscuro));
+}
+
+.table thead th {
+    background-color: var(--crema) !important;
+    color: var(--marron-medio) !important;
+    border-color: var(--linea) !important;
+    font-size: 0.75rem;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    border-color: var(--linea) !important;
+    transition: background-color 0.15s;
+}
+
+.table tbody tr:hover {
+    background-color: #f3ece6 !important;
+}
+
+.table tbody td {
+    border-color: var(--linea) !important;
+    color: var(--text-primary, var(--marron-oscuro)) !important;
+    vertical-align: middle;
+}
+
+.table-light {
+    background-color: var(--crema) !important;
+    color: var(--marron-medio) !important;
+    --bs-table-color: var(--marron-medio);
+}
+
+.card-oscuro {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--linea);
+    box-shadow: 0 4px 16px rgba(59, 42, 32, 0.06);
+    overflow: hidden;
+}

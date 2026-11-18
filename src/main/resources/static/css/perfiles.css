@@ -1,0 +1,80 @@
+/* Paleta: blanco y marrón */
+
+/* Fondo general de la app (crema claro) */
+.bg-dark-custom {
+    background-color: #f7f3ef !important;
+}
+
+/* Tarjetas blancas de los roles */
+.perfil-card {
+    border: 1px solid rgba(59, 42, 32, 0.10);
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(59, 42, 32, 0.06);
+}
+
+.perfil-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(59, 42, 32, 0.18);
+}
+
+/* Título del Rol (ej: Administrador, Secretario) */
+.text-dark-title {
+    color: #3b2a20 !important;
+    font-size: 1.8rem;
+    margin-top: 5px !important;
+}
+
+/* Badge superior (antes naranja, ahora marrón) */
+.badge-orange {
+    background-color: #8b5a2b !important;
+    color: #ffffff !important;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+/* Etiquetas de los permisos asignados (marrón oscuro, letras blancas) */
+.permiso-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background-color: #5c4033 !important;
+    color: #ffffff !important;
+    display: inline-block;
+    margin: 4px 2px;
+}
+
+/* Botón Configurar Accesos */
+.btn-action-dark {
+    background-color: #3b2a20 !important;
+    color: #ffffff !important;
+    border: none;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.btn-action-dark:hover {
+    background-color: #5c4033 !important;
+    color: #ffffff !important;
+}
+
+/* Switch del modal */
+.checkbox-wrapper {
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.checkbox-wrapper:hover {
+    background-color: #f3ece6 !important;
+}
+
+.custom-switch:checked {
+    background-color: #8b5a2b !important;
+    border-color: #8b5a2b !important;
+}
