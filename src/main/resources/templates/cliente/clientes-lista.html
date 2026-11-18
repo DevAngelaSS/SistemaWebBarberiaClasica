@@ -6,66 +6,172 @@
     <div th:replace="~{layout/sidebar :: head_comun}"></div>
     <link rel="stylesheet" th:href="@{/css/dashboard.css}">
     <style>
-        .bg-dark-table { background-color: #1a1a1f !important; }
+        .main-content h2.text-white {
+            color: #3b2a20 !important;
+        }
+
+        .main-content h2 i {
+            color: #8b5a2b !important;
+        }
+
+        .bg-dark-table {
+            background-color: #ffffff !important;
+            border: 1px solid rgba(59, 42, 32, 0.12) !important;
+            box-shadow: 0 4px 20px rgba(59, 42, 32, 0.08) !important;
+        }
+
+        .bg-dark-table .text-white {
+            color: #3b2a20 !important;
+        }
+
+        .bg-dark-table .border-secondary {
+            border-color: rgba(59, 42, 32, 0.12) !important;
+        }
 
         .search-box-container {
-            background-color: #212126 !important;
-            border: 1px solid #2d2d35;
-            border-radius: 6px;
+            background-color: #ffffff !important;
+            border: 1px solid rgba(139, 90, 43, 0.35);
+            border-radius: 8px;
             overflow: hidden;
-            height: 38px;
+            height: 40px;
+            box-shadow: 0 2px 10px rgba(59, 42, 32, 0.06);
         }
-        .search-icon { color: #888894 !important; font-size: 0.95rem; }
-        .search-input { box-shadow: none !important; outline: none !important; font-size: 0.9rem; }
-        .search-input::placeholder { color: #6c757d !important; opacity: 0.8; }
 
-        .table-dark-custom { background-color: #1a1a1f !important; color: #ffffff !important; }
-        .table-dark-custom thead tr { background-color: #212126 !important; border-bottom: 2px solid #2d2d35; }
-        .table-dark-custom th { color: #888894 !important; font-weight: 600; letter-spacing: 0.5px; }
-        .table-dark-custom tbody tr { border-bottom: 1px solid #2d2d35 !important; background-color: #1a1a1f !important; }
-        .table-dark-custom tbody tr:hover { background-color: #212126 !important; }
+        .search-box-container:focus-within {
+            border-color: #8b5a2b;
+            box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.15);
+        }
+
+        .search-icon {
+            color: #8b5a2b !important;
+            font-size: 0.95rem;
+        }
+
+        .search-box-container .search-input {
+            background: transparent !important;
+            color: #3b2a20 !important;
+            box-shadow: none !important;
+            outline: none !important;
+            font-size: 0.9rem;
+        }
+
+        .search-input::placeholder {
+            color: rgba(59, 42, 32, 0.45) !important;
+        }
+
+        .table-dark-custom {
+            background-color: #ffffff !important;
+        }
+
+        .table-dark-custom tbody tr {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid rgba(59, 42, 32, 0.08) !important;
+        }
+
+        .table-dark-custom tbody tr:hover {
+            background-color: #f3ece6 !important;
+        }
+
+        .table-dark-custom td .fa-user-group {
+            color: #8b5a2b !important;
+        }
 
         .cliente-avatar {
-            width: 35px; height: 35px;
-            background-color: #6f42c1; color: white;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; font-weight: bold;
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #8b5a2b, #5c4033);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .btn-naranja {
+            background: linear-gradient(135deg, #8b5a2b, #5c4033) !important;
+            color: #ffffff !important;
+            border: none;
+        }
+
+        .btn-naranja:hover {
+            opacity: 0.9;
         }
 
         .btn-pag {
-            background: #212126; color: #ffffff; border: 0;
-            border-radius: 4px; padding: 5px 14px; font-size: 0.85rem;
-            cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block;
+            background: #efe6df;
+            color: #3b2a20;
+            border: 0;
+            border-radius: 6px;
+            padding: 5px 14px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
         }
-        .btn-pag:hover { background: #ff6b2b; color: #fff; }
-        .btn-pag.active { background: #ff6b2b; color: #fff; font-weight: bold; }
-        .btn-pag.disabled { opacity: 0.3; pointer-events: none; }
+
+        .btn-pag:hover {
+            background: #8b5a2b;
+            color: #ffffff;
+        }
+
+        .btn-pag.active {
+            background: #8b5a2b;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .btn-pag.disabled {
+            opacity: 0.35;
+            pointer-events: none;
+        }
 
         .select-size {
-            background: #212126; color: #fff;
-            border: 1px solid #2d2d35; border-radius: 6px;
-            padding: 4px 8px; font-size: 0.85rem;
+            background: #ffffff;
+            color: #3b2a20;
+            border: 1px solid rgba(59, 42, 32, 0.2);
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 0.85rem;
         }
-        .select-size:focus { outline: none; border-color: #ff6b2b; }
 
-        .btn-naranja { background-color: #ff6b2b !important; color: white !important; }
+        .select-size:focus {
+            outline: none;
+            border-color: #8b5a2b;
+        }
 
-        /* Campo solo lectura con estilo diferenciado */
+        .alert.bg-dark.alert-success {
+            background-color: rgba(46, 139, 87, 0.1) !important;
+            border-color: rgba(46, 139, 87, 0.3) !important;
+            color: #1f6f46 !important;
+        }
+
+        .alert.bg-dark.alert-danger {
+            background-color: rgba(192, 57, 43, 0.1) !important;
+            border-color: rgba(192, 57, 43, 0.3) !important;
+            color: #a52f23 !important;
+        }
+
+        .alert .btn-close-white {
+            filter: none;
+        }
+
         .form-control[readonly] {
-            background-color: #f0f0f0 !important;
-            color: #555 !important;
+            background-color: #efe6df !important;
+            color: #5c4033 !important;
             cursor: not-allowed;
         }
 
-        /* Separador sección contraseña */
         .seccion-password {
-            background: #fff8f5;
-            border: 1px solid #ffe0d0;
+            background: #f7f3ef;
+            border: 1px solid rgba(139, 90, 43, 0.25);
             border-radius: 8px;
             padding: 16px;
         }
+
         .seccion-password .seccion-titulo {
-            color: #ff6b2b;
+            color: #8b5a2b;
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -89,18 +195,20 @@
                     </h2>
                     <small class="text-muted">Gestión de clientes registrados</small>
                 </div>
-                <button class="btn btn-naranja shadow-sm fw-bold px-3 rounded-2"
-                        data-bs-toggle="modal" data-bs-target="#modalNuevo">
+                <button class="btn btn-naranja shadow-sm fw-bold px-3 rounded-2" data-bs-toggle="modal"
+                    data-bs-target="#modalNuevo">
                     <i class="fa-solid fa-user-plus me-2"></i> Nuevo Cliente
                 </button>
             </div>
 
-            <div th:if="${exito}" class="alert alert-success alert-dismissible fade show bg-dark border-success text-success">
+            <div th:if="${exito}"
+                class="alert alert-success alert-dismissible fade show bg-dark border-success text-success">
                 <i class="fa-solid fa-circle-check me-2"></i>
                 <span th:text="${exito}"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
             </div>
-            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show bg-dark border-danger text-danger">
+            <div th:if="${error}"
+                class="alert alert-danger alert-dismissible fade show bg-dark border-danger text-danger">
                 <i class="fa-solid fa-circle-xmark me-2"></i>
                 <span th:text="${error}"></span>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
@@ -114,12 +222,10 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
                         <input type="text" name="search" id="current-search" th:value="${search}"
-                               class="form-control search-input bg-transparent text-white border-0"
-                               placeholder="Buscar por cliente, DNI..."
-                               autocomplete="off">
-                        <a th:if="${search != null and !search.isEmpty()}"
-                           th:href="@{/admin/cliente(size=${size})}"
-                           class="btn border-0 text-muted px-3" title="Limpiar filtro">
+                            class="form-control search-input bg-transparent text-white border-0"
+                            placeholder="Buscar por cliente, DNI..." autocomplete="off">
+                        <a th:if="${search != null and !search.isEmpty()}" th:href="@{/admin/cliente(size=${size})}"
+                            class="btn border-0 text-muted px-3" title="Limpiar filtro">
                             <i class="fa-solid fa-xmark"></i>
                         </a>
                     </div>
@@ -146,11 +252,11 @@
                                     <td class="ps-4">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="cliente-avatar"
-                                                 th:text="${#strings.substring(c.nombres,0,1).toUpperCase()}">
+                                                th:text="${#strings.substring(c.nombres,0,1).toUpperCase()}">
                                             </div>
                                             <div>
                                                 <div class="fw-bold text-white"
-                                                     th:text="${c.nombres + ' ' + c.apellidos}"></div>
+                                                    th:text="${c.nombres + ' ' + c.apellidos}"></div>
                                             </div>
                                         </div>
                                     </td>
@@ -160,22 +266,16 @@
                                     <td th:text="${#temporals.format(c.fechaRegistro,'dd/MM/yyyy')}"></td>
                                     <td>
                                         <label class="switch mb-0">
-                                            <input type="checkbox"
-                                                   th:checked="${c.estado == 1}"
-                                                   th:data-url="'/admin/cliente/estado/' + ${c.id}"
-                                                   class="status-switch">
+                                            <input type="checkbox" th:checked="${c.estado == 1}"
+                                                th:data-url="'/admin/cliente/estado/' + ${c.id}" class="status-switch">
                                             <span class="slider"></span>
                                         </label>
                                     </td>
                                     <td>
                                         <button class="btn btn-sm btn-outline-warning rounded-circle edit-client-btn"
-                                                th:data-id="${c.id}"
-                                                th:data-dni="${c.dni}"
-                                                th:data-nombres="${c.nombres}"
-                                                th:data-apellidos="${c.apellidos}"
-                                                th:data-telefono="${c.telefono}"
-                                                th:data-correo="${c.correo}"
-                                                title="Editar Cliente">
+                                            th:data-id="${c.id}" th:data-dni="${c.dni}" th:data-nombres="${c.nombres}"
+                                            th:data-apellidos="${c.apellidos}" th:data-telefono="${c.telefono}"
+                                            th:data-correo="${c.correo}" title="Editar Cliente">
                                             <i class="fa-solid fa-pen"></i>
                                         </button>
                                     </td>
@@ -183,7 +283,7 @@
                                 <tr th:if="${#lists.isEmpty(clientes)}">
                                     <td colspan="7" class="text-center text-muted py-5">
                                         <i class="fa-solid fa-user-group fa-2x mb-3 d-block"
-                                           style="color:#ff6b2b; opacity:0.3"></i>
+                                            style="color:#ff6b2b; opacity:0.3"></i>
                                         No se encontraron clientes con los criterios especificados.
                                     </td>
                                 </tr>
@@ -192,7 +292,7 @@
                     </div>
 
                     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 px-4 py-3 border-top border-secondary"
-                         th:if="${totalPages > 0}">
+                        th:if="${totalPages > 0}">
                         <div class="d-flex align-items-center gap-2">
                             <span class="text-muted small">Mostrar</span>
                             <select class="select-size" id="select-size-pages">
@@ -205,17 +305,16 @@
 
                         <div class="d-flex align-items-center gap-1">
                             <a th:href="@{/admin/cliente(page=${currentPage - 1}, size=${size}, search=${search})}"
-                               class="btn-pag" th:classappend="${currentPage == 0} ? ' disabled'">
+                                class="btn-pag" th:classappend="${currentPage == 0} ? ' disabled'">
                                 &larr; Anterior
                             </a>
                             <th:block th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
                                 <a th:href="@{/admin/cliente(page=${i}, size=${size}, search=${search})}"
-                                   class="btn-pag" th:classappend="${i == currentPage} ? ' active'"
-                                   th:text="${i + 1}">
+                                    class="btn-pag" th:classappend="${i == currentPage} ? ' active'" th:text="${i + 1}">
                                 </a>
                             </th:block>
                             <a th:href="@{/admin/cliente(page=${currentPage + 1}, size=${size}, search=${search})}"
-                               class="btn-pag" th:classappend="${currentPage >= totalPages - 1} ? ' disabled'">
+                                class="btn-pag" th:classappend="${currentPage >= totalPages - 1} ? ' disabled'">
                                 Siguiente &rarr;
                             </a>
                         </div>
@@ -250,9 +349,8 @@
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">DNI</label>
                                 <div class="input-dni-group">
-                                    <input type="text" id="dniInput" name="dni"
-                                           class="form-control" maxlength="8" required
-                                           placeholder="Ej: 12345678">
+                                    <input type="text" id="dniInput" name="dni" class="form-control" maxlength="8"
+                                        required placeholder="Ej: 12345678">
                                     <button type="button" id="btnBuscarDni" class="btn-search-dni">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
@@ -262,8 +360,8 @@
                             <!-- Teléfono -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">Teléfono</label>
-                                <input type="text" id="telefonoInput" name="telefono"
-                                       class="form-control" maxlength="9" placeholder="9 dígitos">
+                                <input type="text" id="telefonoInput" name="telefono" class="form-control" maxlength="9"
+                                    placeholder="9 dígitos">
                             </div>
 
                             <!-- Nombres (readonly, lo llena la API) -->
@@ -272,9 +370,8 @@
                                     Nombres
                                     <span class="text-muted fw-normal" style="font-size:0.75rem;">(desde RENIEC)</span>
                                 </label>
-                                <input type="text" id="nombresInput" name="nombres"
-                                       class="form-control" readonly required
-                                       placeholder="Busca el DNI primero">
+                                <input type="text" id="nombresInput" name="nombres" class="form-control" readonly
+                                    required placeholder="Busca el DNI primero">
                             </div>
 
                             <!-- Apellidos (readonly, lo llena la API) -->
@@ -283,16 +380,15 @@
                                     Apellidos
                                     <span class="text-muted fw-normal" style="font-size:0.75rem;">(desde RENIEC)</span>
                                 </label>
-                                <input type="text" id="apellidosInput" name="apellidos"
-                                       class="form-control" readonly required
-                                       placeholder="Busca el DNI primero">
+                                <input type="text" id="apellidosInput" name="apellidos" class="form-control" readonly
+                                    required placeholder="Busca el DNI primero">
                             </div>
 
                             <!-- Correo -->
                             <div class="col-12">
                                 <label class="form-label fw-bold small text-uppercase">Correo electrónico</label>
-                                <input type="email" id="correoInput" name="correo"
-                                       class="form-control" placeholder="cliente@gmail.com">
+                                <input type="email" id="correoInput" name="correo" class="form-control"
+                                    placeholder="cliente@gmail.com">
                             </div>
 
                             <!-- Info contraseña automática -->
@@ -330,49 +426,48 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="form-editar" method="post">
-                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     <div class="modal-body p-4">
                         <div class="row g-3">
 
                             <!-- DNI: solo lectura -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">DNI</label>
-                                <input type="text" id="edit-dni" name="dni"
-                                       class="form-control" readonly>
+                                <input type="text" id="edit-dni" name="dni" class="form-control" readonly>
                             </div>
 
                             <!-- Teléfono: editable -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">Teléfono</label>
-                                <input type="text" id="edit-telefono" name="telefono"
-                                       class="form-control" maxlength="9" placeholder="9 dígitos">
+                                <input type="text" id="edit-telefono" name="telefono" class="form-control" maxlength="9"
+                                    placeholder="9 dígitos">
                             </div>
 
                             <!-- Nombres: solo lectura (definido por RENIEC) -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">
                                     Nombres
-                                    <span class="text-muted fw-normal" style="font-size:0.75rem;">(definido por RENIEC)</span>
+                                    <span class="text-muted fw-normal" style="font-size:0.75rem;">(definido por
+                                        RENIEC)</span>
                                 </label>
-                                <input type="text" id="edit-nombres" name="nombres"
-                                       class="form-control" readonly>
+                                <input type="text" id="edit-nombres" name="nombres" class="form-control" readonly>
                             </div>
 
                             <!-- Apellidos: solo lectura (definido por RENIEC) -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">
                                     Apellidos
-                                    <span class="text-muted fw-normal" style="font-size:0.75rem;">(definido por RENIEC)</span>
+                                    <span class="text-muted fw-normal" style="font-size:0.75rem;">(definido por
+                                        RENIEC)</span>
                                 </label>
-                                <input type="text" id="edit-apellidos" name="apellidos"
-                                       class="form-control" readonly>
+                                <input type="text" id="edit-apellidos" name="apellidos" class="form-control" readonly>
                             </div>
 
                             <!-- Correo: editable -->
                             <div class="col-12">
                                 <label class="form-label fw-bold small text-uppercase">Correo electrónico</label>
-                                <input type="email" id="edit-correo" name="correo"
-                                       class="form-control" placeholder="cliente@gmail.com">
+                                <input type="email" id="edit-correo" name="correo" class="form-control"
+                                    placeholder="cliente@gmail.com">
                             </div>
 
                             <!-- ── Sección cambio de contraseña ── -->
@@ -382,7 +477,7 @@
                                         <i class="fa-solid fa-lock me-1"></i>
                                         Cambiar Contraseña
                                         <span class="text-muted fw-normal text-lowercase"
-                                              style="font-size:0.75rem; letter-spacing:0;">
+                                            style="font-size:0.75rem; letter-spacing:0;">
                                             — dejar vacío para no cambiar
                                         </span>
                                     </div>
@@ -394,15 +489,12 @@
                                                 Nueva Contraseña
                                             </label>
                                             <div class="input-group">
-                                                <input type="password" id="edit-nueva-password"
-                                                       name="nuevaPassword"
-                                                       class="form-control"
-                                                       placeholder="Mín. 6 caracteres"
-                                                       maxlength="30"
-                                                       autocomplete="new-password">
+                                                <input type="password" id="edit-nueva-password" name="nuevaPassword"
+                                                    class="form-control" placeholder="Mín. 6 caracteres" maxlength="30"
+                                                    autocomplete="new-password">
                                                 <button type="button" class="btn btn-outline-secondary"
-                                                        onclick="togglePassword('edit-nueva-password', this)"
-                                                        title="Mostrar/ocultar">
+                                                    onclick="togglePassword('edit-nueva-password', this)"
+                                                    title="Mostrar/ocultar">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                             </div>
@@ -414,14 +506,12 @@
                                                 Confirmar Contraseña
                                             </label>
                                             <div class="input-group">
-                                                <input type="password" id="edit-confirmar-password"
-                                                       class="form-control"
-                                                       placeholder="Repite la contraseña"
-                                                       maxlength="30"
-                                                       autocomplete="new-password">
+                                                <input type="password" id="edit-confirmar-password" class="form-control"
+                                                    placeholder="Repite la contraseña" maxlength="30"
+                                                    autocomplete="new-password">
                                                 <button type="button" class="btn btn-outline-secondary"
-                                                        onclick="togglePassword('edit-confirmar-password', this)"
-                                                        title="Mostrar/ocultar">
+                                                    onclick="togglePassword('edit-confirmar-password', this)"
+                                                    title="Mostrar/ocultar">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                             </div>
@@ -447,4 +537,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script th:src="@{/js/clientes.js}"></script>
 </body>
+
 </html>

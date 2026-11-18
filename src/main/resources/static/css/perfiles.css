@@ -79,21 +79,90 @@
     border-color: #8b5a2b !important;
 }
 
+
 #modalPermisos .modal-content {
-    background-color: #212529 !important;
-    color: #ffffff !important;
-    border: 1px solid #3d4246 !important;
+    background-color: #FFFDFC !important;
+    color: #503629 !important;
+    border: 1px solid #935f31 !important;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(80, 54, 41, 0.25);
 }
 
 #modalPermisos .modal-header,
 #modalPermisos .modal-footer {
-    border-color: #3d4246 !important;
+    border-color: #935f31 !important;
 }
 
-#modalPermisos .text-muted {
-    color: rgba(255, 255, 255, 0.6) !important;
+#modalPermisos .modal-title,
+#modalPermisos .text-muted,
+#modalPermisos .text-white,
+#modalPermisos .style-label {
+    color: #503629 !important;
 }
 
-#modalPermisos .checkbox-wrapper:hover {
-    background-color: rgba(255, 255, 255, 0.08) !important;
+#modalPermisos .modal-title i,
+#modalPermisos #nombrePerfilModal {
+    color: #FF6B35 !important;
+}
+
+#modalPermisos .btn-close-white {
+    filter: none;
+    opacity: 0.6;
+}
+
+#modalPermisos .checkbox-wrapper:hover,
+#modalPermisos .checkbox-wrapper:has(input:checked) {
+    background-color: #F2EAE3 !important;
+}
+
+#modalPermisos .form-check-input:checked,
+#modalPermisos .custom-switch:checked {
+    background-color: #FF6B35 !important;
+    border-color: #FF6B35 !important;
+}
+
+#modalPermisos .form-check-input:focus {
+    border-color: #FF6B35 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25) !important;
+}
+
+#modalPermisos .btn-outline-light {
+    color: #503629;
+    border-color: #935f31;
+    background: transparent;
+}
+
+#modalPermisos .btn-outline-light:hover {
+    background-color: #F2EAE3;
+    color: #503629;
+    border-color: #935f31;
+}
+
+#modalPermisos .btn-warning {
+    background: #FF6B35 !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+#modalPermisos .btn-warning:hover {
+    background: #e85a26 !important;
+}
+
+/* Contenedores de roles */
+.role-card {
+    background-color: #FFFDFC;
+    border: 1px solid #E8DCD1 !important;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(80, 54, 41, 0.08) !important;
+}
+
+/* Permisos individuales */
+.permission-badge {
+    background-color: #F2EAE3;
+    color: #503629;
+    border: 1px solid #E5D8CC;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    line-height: 1.4;
 }
