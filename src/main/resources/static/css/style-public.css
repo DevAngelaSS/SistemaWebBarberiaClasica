@@ -550,9 +550,7 @@ body {
     align-items: center;
 }
 
-/* ==========================================================================
-    NAVBAR RESPONSIVO ULTRA-CENTRADO Y ALINEADO
-   ========================================================================== */
+/*  NAVBAR RESPONSIVO ULTRA-CENTRADO Y ALINEADO */
 @media (max-width: 991px) {
     .nb {
         padding: 0 20px;
