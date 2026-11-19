@@ -1,6 +1,4 @@
-// ============================================================
 // clientes.js — con validaciones y cambio de contraseña
-// ============================================================
 
 document.addEventListener('DOMContentLoaded', function () {
 
