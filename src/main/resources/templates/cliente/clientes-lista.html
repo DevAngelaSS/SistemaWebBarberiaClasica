@@ -6,7 +6,6 @@
     <div th:replace="~{layout/sidebar :: head_comun}"></div>
     <link rel="stylesheet" th:href="@{/css/dashboard.css}">
     <style>
-<<<<<<< HEAD
         .main-content h2.text-white {
             color: #3b2a20 !important;
         }
@@ -164,16 +163,6 @@
             cursor: not-allowed;
         }
 
-=======
-        /* Campo solo lectura */
-        .form-control[readonly] {
-            background-color: #f1ebe5 !important;
-            color: rgba(59, 42, 32, 0.7) !important;
-            cursor: not-allowed;
-        }
-
-        /* Sección contraseña */
->>>>>>> JoseRumiche
         .seccion-password {
             background: #f7f3ef;
             border: 1px solid rgba(139, 90, 43, 0.25);
@@ -206,33 +195,20 @@
                     </h2>
                     <small class="text-muted">Gestión de clientes registrados</small>
                 </div>
-<<<<<<< HEAD
                 <button class="btn btn-naranja shadow-sm fw-bold px-3 rounded-2" data-bs-toggle="modal"
                     data-bs-target="#modalNuevo">
-=======
-                <button class="btn btn-primary shadow-sm fw-bold px-3 rounded-2"
-                        data-bs-toggle="modal" data-bs-target="#modalNuevo">
->>>>>>> JoseRumiche
                     <i class="fa-solid fa-user-plus me-2"></i> Nuevo Cliente
                 </button>
             </div>
 
-<<<<<<< HEAD
             <div th:if="${exito}"
                 class="alert alert-success alert-dismissible fade show bg-dark border-success text-success">
-=======
-            <div th:if="${exito}" class="alert alert-success alert-dismissible fade show">
->>>>>>> JoseRumiche
                 <i class="fa-solid fa-circle-check me-2"></i>
                 <span th:text="${exito}"></span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
-<<<<<<< HEAD
             <div th:if="${error}"
                 class="alert alert-danger alert-dismissible fade show bg-dark border-danger text-danger">
-=======
-            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show">
->>>>>>> JoseRumiche
                 <i class="fa-solid fa-circle-xmark me-2"></i>
                 <span th:text="${error}"></span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -246,19 +222,10 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
                         <input type="text" name="search" id="current-search" th:value="${search}"
-<<<<<<< HEAD
                             class="form-control search-input bg-transparent text-white border-0"
                             placeholder="Buscar por cliente, DNI..." autocomplete="off">
                         <a th:if="${search != null and !search.isEmpty()}" th:href="@{/admin/cliente(size=${size})}"
                             class="btn border-0 text-muted px-3" title="Limpiar filtro">
-=======
-                               class="form-control search-input border-0"
-                               placeholder="Buscar por cliente, DNI..."
-                               autocomplete="off">
-                        <a th:if="${search != null and !search.isEmpty()}"
-                           th:href="@{/admin/cliente(size=${size})}"
-                           class="btn border-0 text-muted px-3" title="Limpiar filtro">
->>>>>>> JoseRumiche
                             <i class="fa-solid fa-xmark"></i>
                         </a>
                     </div>
@@ -288,13 +255,8 @@
                                                 th:text="${#strings.substring(c.nombres,0,1).toUpperCase()}">
                                             </div>
                                             <div>
-<<<<<<< HEAD
                                                 <div class="fw-bold text-white"
                                                     th:text="${c.nombres + ' ' + c.apellidos}"></div>
-=======
-                                                <div class="fw-bold"
-                                                     th:text="${c.nombres + ' ' + c.apellidos}"></div>
->>>>>>> JoseRumiche
                                             </div>
                                         </div>
                                     </td>
@@ -321,11 +283,7 @@
                                 <tr th:if="${#lists.isEmpty(clientes)}">
                                     <td colspan="7" class="text-center text-muted py-5">
                                         <i class="fa-solid fa-user-group fa-2x mb-3 d-block"
-<<<<<<< HEAD
                                             style="color:#ff6b2b; opacity:0.3"></i>
-=======
-                                           style="color:var(--accent); opacity:0.3"></i>
->>>>>>> JoseRumiche
                                         No se encontraron clientes con los criterios especificados.
                                     </td>
                                 </tr>
@@ -333,13 +291,8 @@
                         </table>
                     </div>
 
-<<<<<<< HEAD
                     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 px-4 py-3 border-top border-secondary"
                         th:if="${totalPages > 0}">
-=======
-                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 px-4 py-3 border-top"
-                         th:if="${totalPages > 0}">
->>>>>>> JoseRumiche
                         <div class="d-flex align-items-center gap-2">
                             <span class="text-muted small">Mostrar</span>
                             <select class="select-size" id="select-size-pages">
@@ -517,16 +470,9 @@
                                         <div class="col-md-6">
                                             <label class="form-label fw-bold small text-uppercase">Nueva Contraseña</label>
                                             <div class="input-group">
-<<<<<<< HEAD
                                                 <input type="password" id="edit-nueva-password" name="nuevaPassword"
                                                     class="form-control" placeholder="Mín. 6 caracteres" maxlength="30"
                                                     autocomplete="new-password">
-=======
-                                                <input type="password" id="edit-nueva-password"
-                                                       name="nuevaPassword" class="form-control"
-                                                       placeholder="Mín. 6 caracteres" maxlength="30"
-                                                       autocomplete="new-password">
->>>>>>> JoseRumiche
                                                 <button type="button" class="btn btn-outline-secondary"
                                                     onclick="togglePassword('edit-nueva-password', this)"
                                                     title="Mostrar/ocultar">
@@ -538,16 +484,9 @@
                                         <div class="col-md-6">
                                             <label class="form-label fw-bold small text-uppercase">Confirmar Contraseña</label>
                                             <div class="input-group">
-<<<<<<< HEAD
                                                 <input type="password" id="edit-confirmar-password" class="form-control"
                                                     placeholder="Repite la contraseña" maxlength="30"
                                                     autocomplete="new-password">
-=======
-                                                <input type="password" id="edit-confirmar-password"
-                                                       class="form-control"
-                                                       placeholder="Repite la contraseña" maxlength="30"
-                                                       autocomplete="new-password">
->>>>>>> JoseRumiche
                                                 <button type="button" class="btn btn-outline-secondary"
                                                     onclick="togglePassword('edit-confirmar-password', this)"
                                                     title="Mostrar/ocultar">
