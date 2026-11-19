@@ -30,16 +30,10 @@
             <!-- ══ FORMULARIO ══ -->
             <div class="col-lg-4">
                 <div class="card-admin p-4">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
                     <h5 class="fw-bold mb-3 text-uppercase" style="color: #c9a84c;" id="formTitle">Nueva Promoción</h5>
-=======
+
                     <h5 class="fw-bold mb-3 text-uppercase" style="color:var(--accent);" id="formTitle">Nueva Promoción
                     </h5>
->>>>>>> Stashed changes
-=======
-                    <h5 class="fw-bold mb-3 text-uppercase" style="color:var(--accent);" id="formTitle">Nueva Promoción</h5>
->>>>>>> main
 
                     <form th:action="@{/admin/promociones/guardar}" method="post" id="promoForm">
                         <input type="hidden" name="id" id="promoId">
@@ -100,19 +94,16 @@
                                 <div class="input-group">
                                     <input type="text" id="promoProductoTexto" class="form-control input-dark" readonly
                                         placeholder="Ningún producto seleccionado...">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                                    <button class="btn btn-warning text-dark fw-bold" type="button"
-=======
-                                    <button class="btn btn-primary fw-bold" type="button"
->>>>>>> main
-                                        data-bs-toggle="modal" data-bs-target="#modalBuscarProducto">
-=======
+
+                                    <button class="btn btn-warning text-dark fw-bold" type="button" <button
+                                        class="btn btn-primary fw-bold" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#modalBuscarProducto"> </button>
+
                                     <button class="btn btn-primary fw-bold" type="button" data-bs-toggle="modal"
                                         data-bs-target="#modalBuscarProducto">
->>>>>>> Stashed changes
                                         <i class="fa-solid fa-magnifying-glass"></i> Buscar
                                     </button>
+
                                 </div>
                             </div>
 
@@ -185,24 +176,21 @@
                                             th:text="${p.descripcion}"></small>
                                     </td>
                                     <td>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
                                         <span class="badge bg-secondary" th:text="${p.tipoPromocion}"></span>
-                                        <small class="d-block text-white-50" th:if="${p.servicio != null}"
-=======
-                                        <span class="badge bg-light border" style="color:var(--brown-700) !important;"
+                                        <small class="d-block text-white-50" th:if="${p.servicio != null}" <span
+                                            class="badge bg-light border" style="color:var(--brown-700) !important;"
                                             th:text="${p.tipoPromocion}"></span>
-                                        <small class="d-block text-muted" th:if="${p.servicio != null}"
->>>>>>> Stashed changes
-=======
-                                        <span class="badge bg-light border" style="color:var(--brown-700) !important;" th:text="${p.tipoPromocion}"></span>
-                                        <small class="d-block text-muted" th:if="${p.servicio != null}"
->>>>>>> main
-                                            th:text="${p.servicio.nombre}"></small>
-                                        <small class="d-block text-muted" th:if="${p.producto != null}"
-                                            th:text="${p.producto.nombre}"></small>
-                                        <small class="d-block text-muted" th:if="${p.categoria != null}"
-                                            th:text="'Categoría: ' + ${p.categoria.nombre}"></small>
+                                            <small class="d-block text-muted" th:if="${p.servicio != null}"
+                                                <span class="badge bg-light border"
+                                                    style="color:var(--brown-700) !important;"
+                                                    th:text="${p.tipoPromocion}"></span>
+                                                <small class="d-block text-muted" th:if="${p.servicio != null}"
+                                                    main
+                                                    th:text="${p.servicio.nombre}"></small>
+                                                <small class="d-block text-muted" th:if="${p.producto != null}"
+                                                    th:text="${p.producto.nombre}"></small>
+                                                <small class="d-block text-muted" th:if="${p.categoria != null}"
+                                                    th:text="'Categoría: ' + ${p.categoria.nombre}"></small>
                                     </td>
                                     <td class="fw-bold" th:text="${p.porcentajeDescuento} + '%'"></td>
                                     <td>
@@ -212,16 +200,11 @@
                                             th:text="'Fin: ' + ${#temporals.format(p.fechaFin, 'dd/MM/yyyy HH:mm')}"></small>
                                     </td>
                                     <td class="text-center">
-<<<<<<< Updated upstream
+
                                         <span th:if="${p.isVigente()}"
-<<<<<<< HEAD
                                             class="badge bg-success text-dark fw-bold">VIGENTE</span>
-=======
-                                        <span th:if="${p.isVigente()}" class="badge badge-active fw-bold">VIGENTE</span>
->>>>>>> Stashed changes
-=======
-                                            class="badge badge-active fw-bold">VIGENTE</span>
->>>>>>> main
+
+                                        class="badge badge-active fw-bold">VIGENTE</span>
                                         <span th:unless="${p.isVigente()}"
                                             class="badge badge-inactive">PAUSADA/EXPIRADA</span>
                                     </td>
@@ -290,16 +273,10 @@
                         style="color:var(--accent);">
                         <i class="fa-solid fa-boxes-stacked me-2"></i>Seleccionar Producto
                     </h6>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
+
                     <button type="button" class="btn-close btn-close-white" data-bs-target="#promoForm"
-=======
-                    <button type="button" class="btn-close" data-bs-target="#promoForm"
->>>>>>> main
                         data-bs-toggle="modal" data-bs-dismiss="modal"></button>
-=======
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
->>>>>>> Stashed changes
                 </div>
                 <div class="modal-body">
                     <div class="mb-3 position-relative">
@@ -312,26 +289,8 @@
                     <div class="list-group option-product-list" id="listaProductosModal"
                         style="max-height: 300px; overflow-y: auto;">
                         <button th:each="p : ${productos}" type="button"
-<<<<<<< HEAD
-<<<<<<< Updated upstream
                             class="list-group-item list-group-item-action item-prod-modal text-start text-light"
                             style="background: #1a1a1f; border: 1px solid rgba(255,255,255,0.04); margin-bottom: 4px; border-radius: 6px;"
-=======
-                            class="list-group-item list-group-item-action item-prod-modal text-start"
-                            style="margin-bottom: 4px; border-radius: 6px;"
->>>>>>> main
-                            th:data-id="${p.id}" th:data-nombre="${p.nombre}" th:data-precio="${p.precioVenta}"
-                            th:data-stock="${p.stock}">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="fw-bold d-block" style="color:var(--accent);" th:text="${p.nombre}"></span>
-                                    <small class="text-muted"
-                                        th:text="'Precio: S/ ' + ${#numbers.formatDecimal(p.precioVenta, 1, 2)}"></small>
-                                </div>
-                                <span
-<<<<<<< HEAD
-                                    th:class="${p.stock > 0} ? 'badge bg-opacity-25 text-success bg-success' : 'badge bg-opacity-25 text-danger bg-danger'"
-=======
                             class="list-group-item list-group-item-action item-prod-modal text-start"
                             style="margin-bottom: 4px; border-radius: 6px;" th:data-id="${p.id}"
                             th:data-nombre="${p.nombre}" th:data-precio="${p.precioVenta}" th:data-stock="${p.stock}">
@@ -342,14 +301,24 @@
                                     <small class="text-muted"
                                         th:text="'Precio: S/ ' + ${#numbers.formatDecimal(p.precioVenta, 1, 2)}"></small>
                                 </div>
-                                <span th:class="${p.stock > 0} ? 'badge badge-active' : 'badge badge-inactive'"
->>>>>>> Stashed changes
-=======
-                                    th:class="${p.stock > 0} ? 'badge badge-active' : 'badge badge-inactive'"
->>>>>>> main
-                                    th:text="'Stock: ' + ${p.stock}" style="font-size: 0.72rem;">
-                                </span>
-                            </div>
+                                <span
+                                    th:class="${p.stock > 0} ? 'badge bg-opacity-25 text-success bg-success' : 'badge bg-opacity-25 text-danger bg-danger'"
+                                    class="list-group-item list-group-item-action item-prod-modal text-start"
+                                    style="margin-bottom: 4px; border-radius: 6px;" th:data-id="${p.id}"
+                                    th:data-nombre="${p.nombre}" th:data-precio="${p.precioVenta}"
+                                    th:data-stock="${p.stock}">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="fw-bold d-block" style="color:var(--accent);"
+                                                th:text="${p.nombre}"></span>
+                                            <small class="text-muted"
+                                                th:text="'Precio: S/ ' + ${#numbers.formatDecimal(p.precioVenta, 1, 2)}"></small>
+                                        </div>
+                                        <span th:class="${p.stock > 0} ? 'badge badge-active' : 'badge badge-inactive'"
+                                            th:class="${p.stock > 0} ? 'badge badge-active' : 'badge badge-inactive'"
+                                            th:text="'Stock: ' + ${p.stock}" style="font-size: 0.72rem;">
+                                        </span>
+                                    </div>
                         </button>
                     </div>
                 </div>
