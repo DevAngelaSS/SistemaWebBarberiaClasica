@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: barberpro-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: barberpro
+    ports:
+      - "3308:3306"
+    volumes:
+      - datos_mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    container_name: barberpro-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://db:3306/barberpro?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Lima
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MAIL_USER: ${MAIL_USER}
+      MAIL_PASS: ${MAIL_PASS}
+      MAIL_PORT: ${MAIL_PORT}
+      API_DNI_TOKEN: ${API_DNI_TOKEN}
+    volumes:
+      - ./uploads:/app/uploads
+
+volumes:
+  datos_mysql:
